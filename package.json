@@ -1,23 +1,45 @@
 {
   "name": "my-game",
   "version": "1.0.0",
+  "license": "ISC",
+  "author": "Nikita Prodan <sa_vvk@mail.ru>",
   "description": "Pet project that repeating a famous television game",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Nerdych/My-game.git"
-  },
   "keywords": [
     "game",
     "questions"
   ],
-  "author": "Nikita Prodan <sa_vvk@mail.ru>",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Nerdych/My-game/issues"
+  "main": "./src/index.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nerdych/My-game.git"
   },
-  "homepage": "https://github.com/Nerdych/My-game#readme"
+  "homepage": "https://github.com/Nerdych/My-game#readme",
+  "bugs": "https://github.com/Nerdych/My-game/issues",
+  "scripts": {
+    "build:dev": "webpack --config webpack.config.ts --env mode=development",
+    "build:prod": "webpack --config webpack.config.ts --env mode=production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "20.6.0",
+    "@types/react": "18.2.21",
+    "@types/react-dom": "18.2.7",
+    "@types/webpack": "5.28.2",
+    "html-webpack-plugin": "5.5.3",
+    "mini-css-extract-plugin": "^2.7.6",
+    "sass-loader": "13.3.2",
+    "ts-loader": "9.4.4",
+    "css-loader": "^6.8.1",
+    "style-loader": "^3.3.3",
+    "sass": "1.66.1",
+    "typescript": "5.2.2",
+    "ts-node": "10.9.1",
+    "webpack": "5.88.2",
+    "webpack-cli": "5.1.4"
+  }
 }
+
