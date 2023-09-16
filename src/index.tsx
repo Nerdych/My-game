@@ -1,8 +1,8 @@
 import ReactDOM from 'react-dom';
 import { helper } from './helpers';
+import { Suspense, lazy, useState } from 'react';
 import styles from './styles.module.scss';
-import { lazy, useState } from 'react';
-// import Button from './Buttons'
+import { createRoot } from 'react-dom/client';
 
 const Button = lazy(() => import('./Buttons'));
 
@@ -14,13 +14,24 @@ const App: React.FC = () => {
   return (
     <div>
       <h1>Hello, React and TypeScript!</h1>
-      <button className={styles.kukusha} onClick={() => setState(true)}>
-        fas
+      <button
+        className={styles.kukusha}
+        onClick={() => {
+          throw Error('wtf');
+        }}
+      >
+        fasss
       </button>
 
-      {state && <Button />}
+      {state && (
+        <Suspense>
+          <Button />
+        </Suspense>
+      )}
     </div>
   );
 };
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const rootNode = document.getElementById('root');
+const root = createRoot(rootNode!);
+root.render(<App />);

@@ -1,6 +1,6 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import type { RuleSetRule } from 'webpack';
 import { BuildOptions } from './types';
+import type { RuleSetRule } from 'webpack';
 
 export const buildLoaders = (options: BuildOptions): RuleSetRule[] => {
   const { isDev } = options;
@@ -11,28 +11,22 @@ export const buildLoaders = (options: BuildOptions): RuleSetRule[] => {
     exclude: /node_modules/,
   };
 
+  const CSS_CLASSNAME = isDev ? '[path][name]__[local]--[hash:base64:8]' : '[hash:base64:8]';
+
   const scssLoader = {
     test: /\.s[ac]ss$/i,
-    oneOf: [
+    use: [
+      MiniCssExtractPlugin.loader,
       {
-        test: /\.module\.scss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                auto: true,
-                localIdentName: isDev ? '[path][name]__[local]--[hash:base64:8]' : '[hash:base64:8]',
-              },
-            },
+        loader: 'css-loader',
+        options: {
+          modules: {
+            auto: true,
+            localIdentName: CSS_CLASSNAME,
           },
-          'sass-loader',
-        ],
+        },
       },
-      {
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
-      },
+      'sass-loader',
     ],
   };
 
