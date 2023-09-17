@@ -26,7 +26,7 @@ export const buildPlugins = (options: BuildOptions): WebpackPluginInstance[] => 
   if (isDev) {
     plugins.push(
       new BundleAnalyzerPlugin({
-        openAnalyzer: true,
+        openAnalyzer: false,
         analyzerHost: host,
         bundleAnalyzerPort,
       })

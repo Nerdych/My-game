@@ -1,7 +1,7 @@
 import path from 'path';
-import { buildConfig } from './config/buildConfig';
-import type { Configuration } from './config/types';
-import type { BuildEnv, BuildPaths } from './config/types';
+import { buildConfig } from './config/build/buildConfig';
+import type { Configuration } from './config/build/types';
+import type { BuildEnv, BuildPaths } from './config/build/types';
 
 const config = (env: BuildEnv): Configuration => {
   const { mode = 'development', host = 'localhost', port = 3000, bundleAnalyzerPort = 4000 } = env;

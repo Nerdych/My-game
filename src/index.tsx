@@ -14,12 +14,7 @@ const App: React.FC = () => {
   return (
     <div>
       <h1>Hello, React and TypeScript!</h1>
-      <button
-        className={styles.kukusha}
-        onClick={() => {
-          throw Error('wtf');
-        }}
-      >
+      <button className={styles.kukusha} onClick={() => setState(true)}>
         fasss
       </button>
 
