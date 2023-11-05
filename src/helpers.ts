@@ -1,3 +1,1 @@
-export function helper() {
-  console.log('test - // helper');
-}
+export function helper() {}

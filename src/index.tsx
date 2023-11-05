@@ -1,32 +1,31 @@
-import ReactDOM from 'react-dom';
-import { helper } from './helpers';
-import { Suspense, lazy, useState } from 'react';
-import styles from './styles.module.scss';
-import { createRoot } from 'react-dom/client';
+import {createRoot} from 'react-dom/client';
+import {useTranslation} from 'react-i18next';
 
-const Button = lazy(() => import('./Buttons'));
+import {helper} from './helpers';
+import './configs/i18n';
 
-const App: React.FC = () => {
+import type {FC, PropsWithChildren} from 'react';
+
+type Props = PropsWithChildren;
+
+const App: FC<Props> = () => {
+  const {t, i18n} = useTranslation('main');
   helper();
-  helper();
-  const [state, setState] = useState(false);
+  const changeLanguage = () => {
+    i18n.changeLanguage(i18n.language === 'en' ? 'ru' : 'en');
+  };
 
   return (
     <div>
-      <h1>Hello, React and TypeScript!</h1>
-      <button className={styles.kukusha} onClick={() => setState(true)}>
-        fasss
+      {t('greeting')}
+      <button type="button" onClick={changeLanguage}>
+        switch
       </button>
-
-      {state && (
-        <Suspense>
-          <Button />
-        </Suspense>
-      )}
     </div>
   );
 };
 
-const rootNode = document.getElementById('root');
-const root = createRoot(rootNode!);
+const rootNode = document.getElementById('root') as HTMLElement;
+const root = createRoot(rootNode);
+
 root.render(<App />);

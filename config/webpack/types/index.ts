@@ -1,6 +1,7 @@
-import type { Configuration as WebpackConfiguration } from 'webpack';
-import type { Port, Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
-import type { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import type {Configuration as WebpackConfiguration} from 'webpack';
+import type {Port, Configuration as WebpackDevServerConfiguration} from 'webpack-dev-server';
+import type {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
+import type {WebpackRunOptions} from 'webpack-cli/lib/types';
 
 type BundleAnalyzerPort = BundleAnalyzerPlugin.Options['bundleAnalyzerPort'];
 
@@ -9,6 +10,7 @@ export interface Configuration extends WebpackConfiguration {
 }
 
 export type BuildMode = WebpackConfiguration['mode'];
+export type WebpackEnv = WebpackRunOptions['env'];
 
 export interface BuildPaths {
   entry: string;
@@ -16,7 +18,7 @@ export interface BuildPaths {
   html: string;
 }
 
-export interface BuildEnv {
+export interface BuildEnv extends WebpackEnv {
   mode: BuildMode;
   host: string;
   port: Port;

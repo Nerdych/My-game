@@ -16,34 +16,52 @@
   "homepage": "https://github.com/Nerdych/My-game#readme",
   "bugs": "https://github.com/Nerdych/My-game/issues",
   "scripts": {
+    "start": "webpack serve --env port=3000",
     "build:dev": "webpack --config webpack.config.ts --env mode=development",
     "build:prod": "webpack --config webpack.config.ts --env mode=production",
-    "start": "webpack serve --env port=3000"
+    "lint:ts": "eslint src/**/*.{js,jsx,ts,tsx}",
+    "lint:ts:fix": "eslint --fix src/**/*.{js,jsx,ts,tsx}",
+    "lint:scss": "npx stylelint src/**/*.scss",
+    "lint:scss:fix": "npx stylelint --fix src/**/*.scss",
+    "prettier": "prettier --check src/**/*",
+    "prettier:fix": "prettier --write src/**/*"
   },
   "dependencies": {
+    "i18next": "23.6.0",
+    "i18next-browser-languagedetector": "7.1.0",
+    "i18next-http-backend": "2.2.2",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-i18next": "13.3.1"
   },
   "devDependencies": {
-    "@svgr/webpack": "^8.1.0",
+    "@svgr/webpack": "8.1.0",
     "@types/node": "20.6.0",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "@types/webpack": "5.28.2",
-    "@types/webpack-bundle-analyzer": "^4.6.0",
-    "@types/webpack-dev-server": "^4.7.2",
-    "css-loader": "^6.8.1",
+    "@types/webpack-bundle-analyzer": "4.6.0",
+    "@types/webpack-dev-server": "4.7.2",
+    "@typescript-eslint/eslint-plugin": "6.7.2",
+    "@typescript-eslint/parser": "6.7.2",
+    "css-loader": "6.8.1",
+    "eslint": "8.49.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-prettier": "9.0.0",
+    "eslint-plugin-react": "7.33.2",
     "html-webpack-plugin": "5.5.3",
-    "mini-css-extract-plugin": "^2.7.6",
+    "mini-css-extract-plugin": "2.7.6",
     "sass": "1.66.1",
     "sass-loader": "13.3.2",
-    "style-loader": "^3.3.3",
+    "style-loader": "3.3.3",
+    "stylelint": "15.11.0",
+    "stylelint-config-standard-scss": "11.0.0",
     "ts-loader": "9.4.4",
     "ts-node": "10.9.1",
     "typescript": "5.2.2",
     "webpack": "5.88.2",
-    "webpack-bundle-analyzer": "^4.9.1",
+    "webpack-bundle-analyzer": "4.9.1",
     "webpack-cli": "5.1.4",
-    "webpack-dev-server": "^4.15.1"
+    "webpack-dev-server": "4.15.1"
   }
 }

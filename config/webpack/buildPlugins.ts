@@ -1,14 +1,16 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { ProgressPlugin } from 'webpack';
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
-import { replaceNameIfNeeded } from './helpers/replaceNameIfNeeded';
-import type { WebpackPluginInstance } from 'webpack';
-import type { BuildOptions } from './types';
+import {DefinePlugin, ProgressPlugin} from 'webpack';
+import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
+
+import {replaceNameIfNeeded} from './helpers/replaceNameIfNeeded';
+
+import type {BuildOptions} from './types';
+import type {WebpackPluginInstance} from 'webpack';
 
 export const buildPlugins = (options: BuildOptions): WebpackPluginInstance[] => {
-  const { paths, isDev, bundleAnalyzerPort, host } = options;
-  const { html } = paths;
+  const {paths, isDev, bundleAnalyzerPort, host} = options;
+  const {html} = paths;
 
   const CSS_FILENAME = replaceNameIfNeeded('css/[name].[contenthash:8].css', isDev);
 
@@ -21,6 +23,9 @@ export const buildPlugins = (options: BuildOptions): WebpackPluginInstance[] => 
       chunkFilename: CSS_FILENAME,
     }),
     new ProgressPlugin(),
+    new DefinePlugin({
+      __IS_DEV__: isDev,
+    }),
   ];
 
   if (isDev) {

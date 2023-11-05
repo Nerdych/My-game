@@ -3,7 +3,7 @@
     "target": "ES5",
     "module": "ESNext",
     "moduleResolution": "Node",
-    "outDir": "./build",
+    // "outDir": "./build",
     "noImplicitAny": true,
     "jsx": "react-jsx",
     "allowJs": true,
@@ -83,6 +83,7 @@
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "types/**/*.ts", "config/**/*.ts"],
   // Устаналиваем модульность, которая используется при запуске webpack.config.ts с помощью tsc
   "ts-node": {
     "compilerOptions": {

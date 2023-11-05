@@ -1,13 +1,14 @@
-import { buildDevServer } from './buildDevServer';
-import { buildLoaders } from './buildLoaders';
-import { buildPlugins } from './buildPlugins';
-import { buildResolvers } from './buildResolvers';
-import { replaceNameIfNeeded } from './helpers/replaceNameIfNeeded';
-import type { BuildOptions, Configuration } from './types';
+import {buildDevServer} from './buildDevServer';
+import {buildLoaders} from './buildLoaders';
+import {buildPlugins} from './buildPlugins';
+import {buildResolvers} from './buildResolvers';
+import {replaceNameIfNeeded} from './helpers/replaceNameIfNeeded';
+
+import type {BuildOptions, Configuration} from './types';
 
 export const buildConfig = (options: BuildOptions): Configuration => {
-  const { mode, paths, isDev } = options;
-  const { entry, build } = paths;
+  const {mode, paths, isDev} = options;
+  const {entry, build} = paths;
 
   const resolvers = buildResolvers();
   const loaders = buildLoaders(options);
