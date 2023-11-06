@@ -1,20 +1,20 @@
 {
   "compilerOptions": {
-    "target": "ES5",
+    "target": "ES6",
     "module": "ESNext",
     "moduleResolution": "Node",
-    // "outDir": "./build",
-    "noImplicitAny": true,
+    "outDir": "build",
     "jsx": "react-jsx",
+    "rootDir": "./src/",
+    "noImplicitAny": true,
     "allowJs": true,
-    "inlineSourceMap": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "types": ["@types/jest", "@testing-library/jest-dom"],
 
-    // "rootDir": "./",
+    // TODO: Допинать конфиг
     // "baseUrl": "./",
     // "typeRoots": [],                                  /* Specify multiple folders that act like './node_modules/@types'. */
-    // "types": [],                                      /* Specify type package names to be included without being referenced in a source file. */
     // "allowUmdGlobalAccess": true,                     /* Allow accessing UMD globals from modules. */
     // "moduleSuffixes": [],                             /* List of file name suffixes to search when resolving a module. */
     // "allowImportingTsExtensions": true,               /* Allow imports to include TypeScript file extensions. Requires '--moduleResolution bundler' and either '--noEmit' or '--emitDeclarationOnly' to be set. */
@@ -83,7 +83,9 @@
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "types/**/*.ts", "config/**/*.ts"],
+
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+
   // Устаналиваем модульность, которая используется при запуске webpack.config.ts с помощью tsc
   "ts-node": {
     "compilerOptions": {

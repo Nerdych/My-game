@@ -1,14 +1,12 @@
 import {createRoot} from 'react-dom/client';
 import {useTranslation} from 'react-i18next';
-
 import {helper} from './helpers';
-import './configs/i18n';
-
 import type {FC, PropsWithChildren} from 'react';
+import './configs/i18n';
 
 type Props = PropsWithChildren;
 
-const App: FC<Props> = () => {
+export const App: FC<Props> = ({children}) => {
   const {t, i18n} = useTranslation('main');
   helper();
   const changeLanguage = () => {
@@ -19,7 +17,7 @@ const App: FC<Props> = () => {
     <div>
       {t('greeting')}
       <button type="button" onClick={changeLanguage}>
-        switch
+        {children}
       </button>
     </div>
   );

@@ -2,7 +2,6 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import {DefinePlugin, ProgressPlugin} from 'webpack';
 import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
-
 import {replaceNameIfNeeded} from './helpers/replaceNameIfNeeded';
 
 import type {BuildOptions} from './types';

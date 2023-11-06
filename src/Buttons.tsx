@@ -1,11 +1,11 @@
-import Svg from '../public/circle-heat-svgrepo-com.svg';
-
+import Svg from 'circle-heat--com.svg';
 import styles from './index.module.scss';
 
-const Button = () => {
+const Button = ({children}: any) => {
   return (
     <button type="button" className={styles.a}>
-      {__IS_DEV__ ? 'HAHA NETU!!!' : <Svg />}
+      {children}
+      <Svg />
     </button>
   );
 };
