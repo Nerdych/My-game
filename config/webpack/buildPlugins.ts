@@ -32,7 +32,7 @@ export const buildPlugins = (options: BuildOptions): WebpackPluginInstance[] => 
       new BundleAnalyzerPlugin({
         openAnalyzer: false,
         analyzerHost: host,
-        bundleAnalyzerPort,
+        analyzerPort: bundleAnalyzerPort,
       })
     );
   }

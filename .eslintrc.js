@@ -1,11 +1,12 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  extends: ['airbnb', 'prettier', 'plugin:react/recommended'],
-  plugins: ['@typescript-eslint', 'react'],
+  extends: ['airbnb', 'prettier', 'plugin:react/recommended', 'plugin:cypress/recommended'],
+  plugins: ['@typescript-eslint', 'cypress', 'react'],
   env: {
     browser: true,
     jest: true,
     es6: true,
+    'cypress/globals': true,
   },
   globals: {
     React: true,
@@ -22,7 +23,6 @@ module.exports = {
     curly: ['error', 'all'],
     'linebreak-style': ['error', 'windows'],
     'arrow-body-style': ['error', 'always'],
-    'max-len': ['error', {ignoreComments: true, code: 120}],
 
     'no-underscore-dangle': 'off',
     'no-console': 'error',
@@ -61,9 +61,15 @@ module.exports = {
 
   overrides: [
     {
-      files: ['./src/**/*.ts', './src/**/*.tsx'],
+      files: ['src/**/*.ts', 'src/**/*.tsx', 'config/**/*.ts'],
       parserOptions: {
         project: 'tsconfig.json',
+      },
+    },
+    {
+      files: ['src/**/*.d.ts'],
+      rules: {
+        'no-unused-vars': 'off',
       },
     },
   ],

@@ -3,7 +3,7 @@ import type {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
 import type {WebpackRunOptions} from 'webpack-cli/lib/types';
 import type {Port, Configuration as WebpackDevServerConfiguration} from 'webpack-dev-server';
 
-type BundleAnalyzerPort = BundleAnalyzerPlugin.Options['bundleAnalyzerPort'];
+type BundleAnalyzerPort = BundleAnalyzerPlugin.Options['analyzerPort'];
 
 export interface Configuration extends WebpackConfiguration {
   devServer?: WebpackDevServerConfiguration;

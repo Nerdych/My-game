@@ -1,5 +1,5 @@
-import Svg from 'circle-heat--com.svg';
 import styles from './index.module.scss';
+import Svg from './lol.svg';
 
 const Button = ({children}: any) => {
   return (

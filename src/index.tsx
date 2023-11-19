@@ -1,7 +1,11 @@
-import {createRoot} from 'react-dom/client';
 import {useTranslation} from 'react-i18next';
+import {createRoot} from 'react-dom/client';
+import Button from './Buttons';
 import {helper} from './helpers';
+import styles from './styles.module.scss';
+
 import type {FC, PropsWithChildren} from 'react';
+
 import './configs/i18n';
 
 type Props = PropsWithChildren;
@@ -16,8 +20,9 @@ export const App: FC<Props> = ({children}) => {
   return (
     <div>
       {t('greeting')}
-      <button type="button" onClick={changeLanguage}>
+      <button type="button" className={styles.kukusha} onClick={changeLanguage}>
         {children}
+        <Button />
       </button>
     </div>
   );

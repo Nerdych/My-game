@@ -5,12 +5,12 @@
     "moduleResolution": "Node",
     "outDir": "build",
     "jsx": "react-jsx",
-    "rootDir": "./src/",
+    "rootDirs": ["src", "config"],
     "noImplicitAny": true,
     "allowJs": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "types": ["@types/jest", "@testing-library/jest-dom"],
+    "types": ["@types/jest", "@testing-library/jest-dom", "cypress"],
 
     // TODO: Допинать конфиг
     // "baseUrl": "./",
@@ -45,7 +45,7 @@
     // "mapRoot": "",                                    /* Specify the location where debugger should locate map files instead of generated locations. */
     // "inlineSources": true,                            /* Include source code in the sourcemaps inside the emitted JavaScript. */
     // "emitBOM": true,                                  /* Emit a UTF-8 Byte Order Mark (BOM) in the beginning of output files. */
-    // "newLine": "crlf",                                /* Set the newline character for emitting files. */
+    "newLine": "crlf" /* Set the newline character for emitting files. */,
     // "stripInternal": true,                            /* Disable emitting declarations that have '@internal' in their JSDoc comments. */
     // "noEmitHelpers": true,                            /* Disable generating custom helper functions like '__extends' in compiled output. */
     // "noEmitOnError": true,                            /* Disable emitting files if any type checking errors are reported. */
@@ -84,7 +84,7 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
 
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "config/**/*.ts"],
 
   // Устаналиваем модульность, которая используется при запуске webpack.config.ts с помощью tsc
   "ts-node": {

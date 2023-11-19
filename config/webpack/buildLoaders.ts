@@ -6,10 +6,16 @@ import type {RuleSetRule} from 'webpack';
 export const buildLoaders = (options: BuildOptions): RuleSetRule[] => {
   const {isDev} = options;
 
-  const typescriptLoader = {
-    test: /\.tsx?$/,
-    use: 'ts-loader',
-    exclude: /node_modules/,
+  const babelLoader = {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+    ],
   };
 
   const CSS_CLASSNAME = isDev ? '[path][name]__[local]--[hash:base64:8]' : '[hash:base64:8]';
@@ -37,5 +43,5 @@ export const buildLoaders = (options: BuildOptions): RuleSetRule[] => {
     use: '@svgr/webpack',
   };
 
-  return [typescriptLoader, scssLoader, svgLoader];
+  return [babelLoader, scssLoader, svgLoader];
 };
