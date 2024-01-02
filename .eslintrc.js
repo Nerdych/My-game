@@ -1,6 +1,6 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  extends: ['airbnb', 'prettier', 'plugin:react/recommended', 'plugin:cypress/recommended'],
+  extends: ['airbnb', 'prettier', 'plugin:react/recommended', 'plugin:cypress/recommended', 'plugin:storybook/recommended'],
   plugins: ['@typescript-eslint', 'cypress', 'react'],
   env: {
     browser: true,

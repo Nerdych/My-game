@@ -2,8 +2,7 @@ import {buildDevServer} from './buildDevServer';
 import {buildLoaders} from './buildLoaders';
 import {buildPlugins} from './buildPlugins';
 import {buildResolvers} from './buildResolvers';
-import {replaceNameIfNeeded} from './helpers/replaceNameIfNeeded';
-
+import {removeNameIfNeeded} from './helpers/removeNameIfNeeded';
 import type {BuildOptions, Configuration} from './types';
 
 export const buildConfig = (options: BuildOptions): Configuration => {
@@ -16,7 +15,7 @@ export const buildConfig = (options: BuildOptions): Configuration => {
   const devServer = isDev ? buildDevServer(options) : undefined;
   const devtool = isDev ? 'inline-source-map' : 'hidden-source-map';
 
-  const OUTPUT_FILENAME = replaceNameIfNeeded('[name].[contenthash:8].js', isDev);
+  const OUTPUT_FILENAME = removeNameIfNeeded({string: '[name].[contenthash:8].js', isDev});
 
   return {
     entry,

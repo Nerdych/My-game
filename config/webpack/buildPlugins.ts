@@ -1,9 +1,8 @@
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import {DefinePlugin, ProgressPlugin} from 'webpack';
-import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
-import {replaceNameIfNeeded} from './helpers/replaceNameIfNeeded';
-
+import {buildHtmlPlugin} from './plugins/buildHtmlPlugin';
+import {buildCssPlugin} from './plugins/buildCssPlugin';
+import {buildProgressPlugin} from './plugins/buildProgressPlugin';
+import {buildDefinePlugin} from './plugins/buildDefinePlugin';
+import {buildBundleAnalyzerPlugin} from './plugins/buildBundleAnalyzerPlugin';
 import type {BuildOptions} from './types';
 import type {WebpackPluginInstance} from 'webpack';
 
@@ -11,30 +10,15 @@ export const buildPlugins = (options: BuildOptions): WebpackPluginInstance[] => 
   const {paths, isDev, bundleAnalyzerPort, host} = options;
   const {html} = paths;
 
-  const CSS_FILENAME = replaceNameIfNeeded('css/[name].[contenthash:8].css', isDev);
-
   const plugins = [
-    new HtmlWebpackPlugin({
-      template: html,
-    }),
-    new MiniCssExtractPlugin({
-      filename: CSS_FILENAME,
-      chunkFilename: CSS_FILENAME,
-    }),
-    new ProgressPlugin(),
-    new DefinePlugin({
-      __IS_DEV__: isDev,
-    }),
+    buildHtmlPlugin({template: html}),
+    buildCssPlugin({isDev}),
+    buildDefinePlugin({isDev}),
+    buildProgressPlugin(),
   ];
 
   if (isDev) {
-    plugins.push(
-      new BundleAnalyzerPlugin({
-        openAnalyzer: false,
-        analyzerHost: host,
-        analyzerPort: bundleAnalyzerPort,
-      })
-    );
+    plugins.push(buildBundleAnalyzerPlugin({bundleAnalyzerPort, host}));
   }
 
   return plugins;
