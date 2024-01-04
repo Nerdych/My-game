@@ -2,7 +2,7 @@ import path from 'path';
 
 export const buildConfig = (): Cypress.ConfigOptions => {
   const baseUrl = 'http://localhost:6000';
-  const autotestsFolder = path.resolve(__dirname, '..', '..', 'src', 'autotests');
+  const autotestsFolder = path.resolve(__dirname, '..', '..', 'src', 'app', 'autotests');
 
   return {
     e2e: {
