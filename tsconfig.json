@@ -10,7 +10,7 @@
     "allowJs": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "types": ["@types/jest", "@testing-library/jest-dom", "cypress"],
+    "types": ["@types/jest", "@testing-library/jest-dom"],
     "resolveJsonModule": true,
 
     // TODO: Допинать конфиг

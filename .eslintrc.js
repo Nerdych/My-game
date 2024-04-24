@@ -1,12 +1,11 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  extends: ['airbnb', 'prettier', 'plugin:react/recommended', 'plugin:cypress/recommended', 'plugin:storybook/recommended'],
-  plugins: ['@typescript-eslint', 'cypress', 'react'],
+  extends: ['airbnb', 'prettier', 'plugin:react/recommended', 'plugin:storybook/recommended'],
+  plugins: ['@typescript-eslint', 'react'],
   env: {
     browser: true,
     jest: true,
     es6: true,
-    'cypress/globals': true,
   },
   globals: {
     React: true,

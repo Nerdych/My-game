@@ -1,7 +1,7 @@
 import {useTranslation} from 'react-i18next';
 import {helper} from '../helpers';
 import Button from '../Buttons';
-import styles from './styles.module.scss';
+import styles from '../styles.module.scss';
 
 import type {FC, PropsWithChildren} from 'react';
 

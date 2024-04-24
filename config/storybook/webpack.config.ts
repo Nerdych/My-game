@@ -18,7 +18,7 @@ const resetDefaultSvgLoaders = (rules: Exclude<ModuleOptions['rules'], undefined
     }
 
     if (rule.test.toString().includes('svg')) {
-      return {...rule, exclude: /\.svg$/i};
+      return {...rule, exclude: rule.test};
     }
 
     return rule;
