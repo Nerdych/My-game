@@ -1,13 +1,10 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import type {BuildOptions} from '../types';
 
-interface Params {
-  template: string;
-}
-
-export const buildHtmlPlugin = (params: Params) => {
-  const {template} = params;
+export const buildHtmlPlugin = (params: BuildOptions) => {
+  const {paths} = params;
 
   return new HtmlWebpackPlugin({
-    template,
+    template: paths.html,
   });
 };

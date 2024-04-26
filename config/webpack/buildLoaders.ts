@@ -5,10 +5,8 @@ import type {BuildOptions} from './types';
 import type {RuleSetRule} from 'webpack';
 
 export const buildLoaders = (options: BuildOptions): RuleSetRule[] => {
-  const {isDev} = options;
-
   const babelLoader = buildBabelLoader();
-  const cssLoader = buildCssLoader({isDev});
+  const cssLoader = buildCssLoader(options);
   const svgLoader = buildSvgLoader();
 
   return [babelLoader, cssLoader, svgLoader];

@@ -3,22 +3,23 @@ import {buildCssPlugin} from './plugins/buildCssPlugin';
 import {buildProgressPlugin} from './plugins/buildProgressPlugin';
 import {buildDefinePlugin} from './plugins/buildDefinePlugin';
 import {buildBundleAnalyzerPlugin} from './plugins/buildBundleAnalyzerPlugin';
+import {buildCopyPlugin} from './plugins/buildCopyPlugin';
 import type {BuildOptions} from './types';
 import type {WebpackPluginInstance} from 'webpack';
 
 export const buildPlugins = (options: BuildOptions): WebpackPluginInstance[] => {
-  const {paths, isDev, bundleAnalyzerPort, host} = options;
-  const {html} = paths;
+  const {isDev} = options;
 
   const plugins = [
-    buildHtmlPlugin({template: html}),
-    buildCssPlugin({isDev}),
-    buildDefinePlugin({isDev}),
+    buildHtmlPlugin(options),
+    buildCssPlugin(options),
+    buildDefinePlugin(options),
     buildProgressPlugin(),
+    buildCopyPlugin(),
   ];
 
   if (isDev) {
-    plugins.push(buildBundleAnalyzerPlugin({bundleAnalyzerPort, host}));
+    plugins.push(buildBundleAnalyzerPlugin(options));
   }
 
   return plugins;

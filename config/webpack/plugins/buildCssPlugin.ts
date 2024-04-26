@@ -2,9 +2,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import {removeNameIfNeeded} from '../helpers/removeNameIfNeeded';
 import type {BuildOptions} from '../types';
 
-interface Params extends Pick<BuildOptions, 'isDev'> {}
-
-export const buildCssPlugin = (params: Params) => {
+export const buildCssPlugin = (params: BuildOptions) => {
   const {isDev} = params;
   const CSS_FILENAME = removeNameIfNeeded({string: 'css/[name].[contenthash:8].css', isDev});
 

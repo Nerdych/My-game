@@ -1,9 +1,7 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import type {BuildOptions} from 'typescript';
+import type {BuildOptions} from '../types';
 
-interface Params extends Pick<BuildOptions, 'isDev'> {}
-
-export const buildCssLoader = (params: Params) => {
+export const buildCssLoader = (params: BuildOptions) => {
   const {isDev} = params;
   const CSS_CLASSNAME = isDev ? '[path][name]__[local]--[hash:base64:8]' : '[hash:base64:8]';
 

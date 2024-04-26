@@ -1,9 +1,7 @@
 import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
 import type {BuildOptions} from '../types';
 
-interface Params extends Pick<BuildOptions, 'host' | 'bundleAnalyzerPort'> {}
-
-export const buildBundleAnalyzerPlugin = (params: Params) => {
+export const buildBundleAnalyzerPlugin = (params: BuildOptions) => {
   const {host, bundleAnalyzerPort} = params;
 
   return new BundleAnalyzerPlugin({
