@@ -21,11 +21,10 @@ module.exports = {
     semi: ['error', 'always'],
     curly: ['error', 'all'],
     'linebreak-style': ['error', 'windows'],
-    'arrow-body-style': ['error', 'always'],
 
+    'no-shadow': 'off',
     'no-underscore-dangle': 'off',
     'no-console': 'error',
-    'no-unused-vars': ['error', {varsIgnorePattern: '__.*__'}],
     'no-multiple-empty-lines': ['error', {max: 1}],
 
     'object-curly-spacing': ['error', 'never'],
@@ -39,9 +38,15 @@ module.exports = {
       },
     ],
 
-    'react/function-component-definition': 'off',
     'react/jsx-filename-extension': [2, {extensions: ['.jsx', '.tsx']}],
     'react/react-in-jsx-scope': 'off',
+    'react/function-component-definition': [
+      'error',
+      {
+        namedComponents: 'function-declaration',
+        unnamedComponents: 'arrow-function',
+      },
+    ],
 
     'import/extensions': 'off',
     'import/no-unresolved': 'off',
@@ -54,8 +59,10 @@ module.exports = {
       },
     ],
 
+    '@typescript-eslint/no-unused-vars': ['error', {varsIgnorePattern: '__.*__'}],
     '@typescript-eslint/consistent-type-exports': 'error',
     '@typescript-eslint/consistent-type-imports': 'error',
+    '@typescript-eslint/no-shadow': 'error',
   },
 
   overrides: [

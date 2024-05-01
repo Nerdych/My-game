@@ -12,6 +12,15 @@
     "allowSyntheticDefaultImports": true,
     "types": ["@types/jest", "@testing-library/jest-dom"],
     "resolveJsonModule": true,
+    "baseUrl": "./",
+    "paths": {
+      "@app/*": ["src/app/*"],
+      "@pages/*": ["src/pages/*"],
+      "@widgets/*": ["src/widgets/*"],
+      "@features/*": ["src/features/*"],
+      "@entities/*": ["src/entities/*"],
+      "@shared/*": ["src/shared/*"]
+    },
 
     // TODO: Допинать конфиг
     // "baseUrl": "./",
