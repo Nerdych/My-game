@@ -20,7 +20,6 @@ module.exports = {
     quotes: ['warn', 'single'],
     semi: ['error', 'always'],
     curly: ['error', 'all'],
-    'linebreak-style': ['error', 'windows'],
 
     'no-shadow': 'off',
     'no-underscore-dangle': 'off',
