@@ -39,6 +39,8 @@ module.exports = {
 
     'react/jsx-filename-extension': [2, {extensions: ['.jsx', '.tsx']}],
     'react/react-in-jsx-scope': 'off',
+    'react/require-default-props': 'off',
+    'react/jsx-props-no-spreading': 'off',
     'react/function-component-definition': [
       'error',
       {
@@ -62,6 +64,14 @@ module.exports = {
     '@typescript-eslint/consistent-type-exports': 'error',
     '@typescript-eslint/consistent-type-imports': 'error',
     '@typescript-eslint/no-shadow': 'error',
+
+    'jsx-a11y/label-has-associated-control': [
+      'error',
+      {
+        assert: 'either',
+        depth: 3,
+      },
+    ],
   },
 
   overrides: [

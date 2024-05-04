@@ -31,6 +31,7 @@
     "prettier:fix": "prettier --write src/**/*"
   },
   "dependencies": {
+    "classnames": "2.5.1",
     "i18next": "23.6.0",
     "i18next-browser-languagedetector": "7.1.0",
     "i18next-http-backend": "2.2.2",
@@ -87,6 +88,7 @@
     "style-loader": "3.3.3",
     "stylelint": "15.11.0",
     "stylelint-config-standard-scss": "11.0.0",
+    "stylelint-order": "6.0.4",
     "ts-node": "10.9.1",
     "typescript": "5.2.2",
     "webpack": "5.88.2",

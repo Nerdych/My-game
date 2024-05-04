@@ -1,0 +1,13 @@
+@mixin fontFace($name, $path, $weight) {
+  @font-face {
+    font-family: $name;
+    src: url($path + '.woff2') format('woff2'), url($path + '.woff') format('woff'), url($path + '.svg') format('svg'),
+      url($path + '.ttf') format('ttf');
+    font-weight: $weight;
+    font-style: normal;
+    font-display: swap;
+  }
+}
+
+@include fontFace('Open Sans', './fonts/OpenSansRegular/OpenSans-Regular', 400);
+@include fontFace('Open Sans', './fonts/OpenSansBold/OpenSans-Bold', 700);

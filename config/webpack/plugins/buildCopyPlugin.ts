@@ -1,7 +1,7 @@
 import CopyPlugin from 'copy-webpack-plugin';
 
-export const buildCopyPlugin = () => {
-  return new CopyPlugin({
+export const buildCopyPlugin = () =>
+  new CopyPlugin({
     patterns: [
       {
         from: 'public/locales/**/*.json',
@@ -12,4 +12,3 @@ export const buildCopyPlugin = () => {
       },
     ],
   });
-};

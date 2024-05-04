@@ -16,6 +16,7 @@ export const buildConfig = (options: BuildOptions): Configuration => {
   const devtool = isDev ? 'inline-source-map' : 'hidden-source-map';
 
   const OUTPUT_FILENAME = removeNameIfNeeded({string: '[name].[contenthash:8].js', isDev});
+  const OUTPUT_ASSET_FILENAME = removeNameIfNeeded({string: 'assets/[name].[contenthash:8][ext][query]', isDev});
 
   return {
     entry,
@@ -31,6 +32,7 @@ export const buildConfig = (options: BuildOptions): Configuration => {
       path: build,
       filename: OUTPUT_FILENAME,
       chunkFilename: OUTPUT_FILENAME,
+      assetModuleFilename: OUTPUT_ASSET_FILENAME,
       clean: true,
     },
   };

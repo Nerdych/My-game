@@ -1,17 +1,7 @@
+import {Input} from '@shared/ui-kit/Input';
+
 function MainPage() {
-  return (
-    <>
-      MainPage
-      <button
-        onClick={() => {
-          throw new Error('whaaat');
-        }}
-        type="button"
-      >
-        Throw Error
-      </button>
-    </>
-  );
+  return <Input label="Название пака" placeholder="Музыкальный пак by Nerd" />;
 }
 
 export default MainPage;
