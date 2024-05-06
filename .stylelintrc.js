@@ -164,11 +164,20 @@ module.exports = {
     'block-no-empty': true,
     'color-hex-length': 'long',
     'selector-class-pattern': '^[a-z][a-zA-Z0-9]+$',
+    'declaration-no-important': true,
     'declaration-empty-line-before': ['never', {ignore: 'after-declaration'}],
+    'declaration-block-no-duplicate-properties': true,
+    'rule-empty-line-before': 'always',
+    'property-disallowed-list': [['flex', 'grid'], {message: 'Используй более специфичные свойства'}],
+    'unit-disallowed-list': [
+      ['px', 'em'],
+      {message: 'Используй rem для указания гибких размеров', ignoreProperties: {px: [/\$.*/]}},
+    ],
     'order/properties-order': [
       [
         {
           emptyLineBefore: 'always',
+          noEmptyLineBetween: true,
           properties: resetProperties,
         },
         {
@@ -194,6 +203,25 @@ module.exports = {
       ],
       {
         unspecified: 'bottom',
+      },
+    ],
+    'order/order': [
+      'declarations',
+      {
+        type: 'at-rule',
+        name: 'media',
+      },
+      {
+        type: 'rule',
+        selector: '^&::(before|after)',
+      },
+      {
+        type: 'rule',
+        selector: '^&:\\w',
+      },
+      {
+        type: 'rule',
+        selector: '^.',
       },
     ],
   },

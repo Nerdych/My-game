@@ -1,7 +1,9 @@
 import {DefinePlugin} from 'webpack';
 import type {BuildOptions} from '../types';
 
-export const buildDefinePlugin = (params: BuildOptions) => {
+type Params = Pick<BuildOptions, 'isDev'>;
+
+export const buildDefinePlugin = (params: Params) => {
   const {isDev} = params;
 
   return new DefinePlugin({

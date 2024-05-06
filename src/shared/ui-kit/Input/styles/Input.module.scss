@@ -4,7 +4,7 @@ $placeholder-size: 1.6rem;
 .root {
   position: relative;
 
-  display: flex;
+  display: inline-block;
   align-items: center;
 }
 
@@ -26,8 +26,6 @@ $placeholder-size: 1.6rem;
   }
 
   &::placeholder {
-    width: 0.5rem;
-
     font-size: $placeholder-size;
     color: var(--gray);
     transition: color 0.2s;
@@ -41,7 +39,8 @@ $placeholder-size: 1.6rem;
 .text {
   z-index: 10;
   position: absolute;
-  transform: translateY(0);
+  transform: translateY(-50%);
+  top: 50%;
   left: $padding;
 
   font-size: $placeholder-size;
@@ -51,7 +50,7 @@ $placeholder-size: 1.6rem;
 
 .input:focus + .text,
 .input:not(:placeholder-shown) + .text {
-  transform: translateY(-4.6rem);
+  transform: translateY(-5.4rem);
   left: 0;
 
   font-size: 2rem;
