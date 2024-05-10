@@ -43,7 +43,7 @@ export default (params: Params): Configuration => {
   };
 
   if (config.module?.rules) {
-    config.module.rules = resetDefaultLoaders(config.module?.rules, ['svg', 'css']);
+    config.module.rules = resetDefaultLoaders(config.module.rules, ['svg', 'css']);
   }
 
   return merge(config, customConfig);

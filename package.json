@@ -21,7 +21,7 @@
     "build:prod": "webpack --config webpack.config.ts --env mode=production",
     "test:unit": "jest --config config/jest/jest.config.ts",
     "test:e2e": "npx playwright test --config config/playwright/playwright.config.ts",
-    "storybook": "storybook dev -p 6000 -c config/storybook",
+    "storybook": "storybook dev -p 6006 -c config/storybook",
     "storybook:build": "storybook build -c config/storybook",
     "lint:ts": "eslint src/**/*.{js,jsx,ts,tsx}",
     "lint:ts:fix": "eslint --fix src/**/*.{js,jsx,ts,tsx}",
@@ -40,8 +40,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-i18next": "13.3.1",
-    "react-router-dom": "6.23.0",
-    "storybook": "^7.5.3"
+    "react-router-dom": "6.23.0"
   },
   "devDependencies": {
     "@babel/core": "7.23.3",
@@ -88,6 +87,7 @@
     "mini-css-extract-plugin": "2.7.6",
     "sass": "1.66.1",
     "sass-loader": "13.3.2",
+    "storybook": "7.5.3",
     "style-loader": "3.3.3",
     "stylelint": "15.11.0",
     "stylelint-config-standard-scss": "11.0.0",
@@ -108,10 +108,6 @@
         "height": 768,
         "deviceScaleFactor": 1,
         "mobile": false
-      },
-      "chrome.iphone7": {
-        "target": "chrome.docker",
-        "preset": "iPhone 7"
       }
     }
   }
