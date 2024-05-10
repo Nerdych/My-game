@@ -1,0 +1,58 @@
+$padding: 1.4rem;
+$placeholder-size: 1.6rem;
+
+.root {
+  position: relative;
+
+  display: inline-block;
+  align-items: center;
+}
+
+.input {
+  height: 5rem;
+  width: 100%;
+  padding: 0 $padding;
+
+  font-size: 1.6rem;
+  color: var(--black);
+
+  background-color: var(--white);
+  border: 0.1rem var(--gray) solid;
+  border-radius: 1.2rem;
+
+  &:focus-visible {
+    border-color: transparent;
+    outline: 0.4rem var(--light-blue) solid;
+  }
+
+  &::placeholder {
+    font-size: $placeholder-size;
+    color: var(--gray);
+    transition: color 0.2s;
+  }
+}
+
+.withLabel:placeholder-shown:not(:focus)::placeholder {
+  color: transparent;
+}
+
+.text {
+  z-index: 10;
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  left: $padding;
+
+  font-size: $placeholder-size;
+  color: var(--gray);
+  transition: all 0.3s;
+}
+
+.input:focus + .text,
+.input:not(:placeholder-shown) + .text {
+  transform: translateY(-5.8rem);
+  left: 0;
+
+  font-size: 2rem;
+  color: var(--black);
+}

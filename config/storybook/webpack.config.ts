@@ -1,46 +1,49 @@
 import {merge} from 'webpack-merge';
+import {buildFontsLoader} from '../webpack/loaders/buildFontsLoader';
+import {buildResolvers} from '../webpack/buildResolvers';
 import {buildBabelLoader} from '../webpack/loaders/buildBabelLoader';
 import {buildCssLoader} from '../webpack/loaders/buildCssLoader';
 import {buildSvgLoader} from '../webpack/loaders/buildSvgLoader';
 import {buildCssPlugin} from '../webpack/plugins/buildCssPlugin';
 import {buildDefinePlugin} from '../webpack/plugins/buildDefinePlugin';
-import {buildProgressPlugin} from '../webpack/plugins/buildProgressPlugin';
 import type {Configuration, ModuleOptions} from 'webpack';
 
 interface Params {
   config: Configuration;
 }
 
-const resetDefaultSvgLoaders = (rules: Exclude<ModuleOptions['rules'], undefined>) => {
-  return rules.map((rule) => {
+const resetDefaultLoaders = (rules: Exclude<ModuleOptions['rules'], undefined>, names: Array<string>) =>
+  rules.filter((rule) => {
     if (!rule || typeof rule === 'string' || !rule.test) {
-      return rule;
+      return true;
     }
 
-    if (rule.test.toString().includes('svg')) {
-      return {...rule, exclude: rule.test};
+    if (names.some((name) => rule.test?.toString().includes(name))) {
+      return false;
     }
 
-    return rule;
+    return true;
   });
-};
 
 export default (params: Params): Configuration => {
   const {config} = params;
-  const options = {isDev: true};
+  const options = {isDev: false};
 
-  const loaders = [buildBabelLoader(), buildSvgLoader(), buildCssLoader(options)];
-  const plugins = [buildProgressPlugin(), buildDefinePlugin(options), buildCssPlugin(options)];
+  const loaders = [buildBabelLoader(), buildCssLoader(options), buildSvgLoader(), buildFontsLoader(options)];
+  const plugins = [buildCssPlugin(options), buildDefinePlugin(options)];
 
   const customConfig: Partial<Configuration> = {
     module: {
       rules: loaders,
     },
     plugins,
+    resolve: {
+      alias: buildResolvers().alias,
+    },
   };
 
   if (config.module?.rules) {
-    config.module.rules = resetDefaultSvgLoaders(config.module?.rules);
+    config.module.rules = resetDefaultLoaders(config.module.rules, ['svg', 'css']);
   }
 
   return merge(config, customConfig);

@@ -26,7 +26,6 @@ module.exports = {
     quotes: ['warn', 'single'],
     semi: ['error', 'always'],
     curly: ['error', 'all'],
-    'linebreak-style': ['error', 'windows'],
 
     'no-shadow': 'off',
     'no-underscore-dangle': 'off',
@@ -46,8 +45,8 @@ module.exports = {
 
     'react/jsx-filename-extension': [2, {extensions: ['.jsx', '.tsx']}],
     'react/react-in-jsx-scope': 'off',
-    'react/jsx-props-no-spreading': 'off',
     'react/require-default-props': 'off',
+    'react/jsx-props-no-spreading': 'off',
     'react/function-component-definition': [
       'error',
       {
@@ -73,6 +72,14 @@ module.exports = {
     '@typescript-eslint/no-shadow': 'error',
 
     'i18next/no-literal-string': ['error', {mode: 'jsx-only'}],
+
+    'jsx-a11y/label-has-associated-control': [
+      'error',
+      {
+        assert: 'either',
+        depth: 3,
+      },
+    ],
   },
 
   overrides: [

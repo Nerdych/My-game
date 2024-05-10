@@ -3,7 +3,7 @@ import type {ResolveOptions} from 'webpack';
 
 export const buildResolvers = (): ResolveOptions => {
   const extensions = ['.tsx', '.ts', '.jsx', '.js'];
-  const basePath = path.resolve(__dirname, '..', '..', 'src');
+  const basePath = path.resolve(process.cwd(), 'src');
 
   return {
     extensions,

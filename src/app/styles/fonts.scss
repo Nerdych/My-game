@@ -1,0 +1,40 @@
+@function getSrcWithFormat($path, $ext, $format) {
+  @return url(quote($path + '.' + $ext)) format(quote($format));
+}
+
+@function getExtension($ext, $filename) {
+  $extmods: (
+    svg: '#' + $filename,
+  );
+
+  @return if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+}
+
+@function getFormat($ext) {
+  $formats: (
+    otf: 'opentype',
+    ttf: 'truetype',
+  );
+
+  @return if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+}
+
+@mixin fontFace($name, $path, $filename, $weight, $exts: woff2 woff ttf svg, $style: 'normal') {
+  $src: null;
+  $fullpath: $path + '/' + $filename;
+
+  @each $ext in $exts {
+    $src: append($src, getSrcWithFormat($fullpath, getExtension($ext, $filename), getFormat($ext)), comma);
+  }
+
+  @font-face {
+    font-family: $name;
+    src: $src;
+    font-weight: $weight;
+    font-style: $style;
+    font-display: swap;
+  }
+}
+
+@include fontFace('Open Sans', './fonts/OpenSansRegular', 'OpenSans-Regular', 400);
+@include fontFace('Open Sans', './fonts/OpenSansBold', 'OpenSans-Bold', 700);

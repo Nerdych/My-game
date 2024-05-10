@@ -7,5 +7,4 @@ module.exports = {
   jsxSingleQuote: false,
   bracketSpacing: false,
   arrowParens: 'always',
-  endOfLine: 'crlf',
 };

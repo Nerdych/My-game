@@ -1,4 +1,5 @@
 import type {Preview} from '@storybook/react';
+import '@app/styles/index.scss';
 
 const preview: Preview = {
   parameters: {
@@ -11,9 +12,8 @@ const preview: Preview = {
     },
     backgrounds: {
       values: [
-        {name: 'red', value: '#f00'},
-        {name: 'green', value: '#0f0'},
-        {name: 'blue', value: '#00f'},
+        {name: 'white', value: '#fff'},
+        {name: 'black', value: '#000'},
       ],
     },
   },

@@ -1,7 +1,9 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import type {BuildOptions} from '../types';
 
-export const buildHtmlPlugin = (params: BuildOptions) => {
+type Params = Pick<BuildOptions, 'paths'>;
+
+export const buildHtmlPlugin = (params: Params) => {
   const {paths} = params;
 
   return new HtmlWebpackPlugin({
