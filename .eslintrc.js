@@ -1,7 +1,13 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  extends: ['airbnb', 'prettier', 'plugin:react/recommended', 'plugin:storybook/recommended'],
-  plugins: ['@typescript-eslint', 'react'],
+  extends: [
+    'airbnb',
+    'prettier',
+    'plugin:react/recommended',
+    'plugin:storybook/recommended',
+    'plugin:i18next/recommended',
+  ],
+  plugins: ['@typescript-eslint', 'react', 'i18next'],
   env: {
     browser: true,
     jest: true,
@@ -40,6 +46,8 @@ module.exports = {
 
     'react/jsx-filename-extension': [2, {extensions: ['.jsx', '.tsx']}],
     'react/react-in-jsx-scope': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'react/require-default-props': 'off',
     'react/function-component-definition': [
       'error',
       {
@@ -63,6 +71,8 @@ module.exports = {
     '@typescript-eslint/consistent-type-exports': 'error',
     '@typescript-eslint/consistent-type-imports': 'error',
     '@typescript-eslint/no-shadow': 'error',
+
+    'i18next/no-literal-string': ['error', {mode: 'jsx-only'}],
   },
 
   overrides: [

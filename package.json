@@ -31,6 +31,7 @@
     "prettier:fix": "prettier --write src/**/*"
   },
   "dependencies": {
+    "classnames": "^2.5.1",
     "i18next": "23.6.0",
     "i18next-browser-languagedetector": "7.1.0",
     "i18next-http-backend": "2.2.2",
@@ -74,6 +75,7 @@
     "eslint": "8.49.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-prettier": "9.0.0",
+    "eslint-plugin-i18next": "^6.0.3",
     "eslint-plugin-react": "7.33.2",
     "eslint-plugin-storybook": "0.6.15",
     "html-webpack-plugin": "5.5.3",
