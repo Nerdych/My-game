@@ -1,0 +1,71 @@
+.root {
+  font-size: 1.7rem;
+  line-height: 2.2rem;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  &:focus-visible {
+    outline: 0.4rem var(--light-blue) solid;
+  }
+}
+
+.small {
+  padding: 0.4rem 1rem;
+
+  border-radius: 4rem;
+}
+
+.medium {
+  padding: 0.7rem 1.4rem;
+
+  border-radius: 4rem;
+}
+
+.large {
+  padding: 1.4rem 2rem;
+
+  border-radius: 1.2rem;
+}
+
+.accent {
+  color: var(--white);
+
+  background-color: var(--blue);
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--hover-blue);
+    transition: background-color 0.2s;
+  }
+}
+
+.regular {
+  color: var(--blue);
+
+  background-color: var(--ghost-blue);
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--hover-ghost-blue);
+    transition: background-color 0.2s;
+  }
+}
+
+.ghost {
+  color: var(--blue);
+
+  background-color: transparent;
+  border: 0.1rem solid var(--blue);
+
+  &:hover,
+  &:focus-visible {
+    color: var(--white);
+
+    background-color: var(--blue);
+    transition: all 0.2s;
+  }
+}

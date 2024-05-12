@@ -1,11 +1,17 @@
 $padding: 1.4rem;
-$placeholder-size: 1.6rem;
+$font-size: 1.6rem;
 
 .root {
-  position: relative;
-
   display: inline-block;
   align-items: center;
+
+  &.withLabel {
+    margin-top: 4rem;
+  }
+}
+
+.label {
+  position: relative;
 }
 
 .input {
@@ -13,27 +19,49 @@ $placeholder-size: 1.6rem;
   width: 100%;
   padding: 0 $padding;
 
-  font-size: 1.6rem;
+  font-size: $font-size;
   color: var(--black);
 
   background-color: var(--white);
-  border: 0.1rem var(--gray) solid;
   border-radius: 1.2rem;
+
+  &::placeholder {
+    user-select: none;
+  }
+
+  .withLabel &:placeholder-shown:not(:focus)::placeholder {
+    color: transparent;
+  }
+
+  :not(.withLabel) &.ghost:not(:focus-visible):hover::placeholder {
+    color: var(--blue);
+  }
+
+  &.bold {
+    font-weight: 700;
+  }
+
+  &.default {
+    border: 0.1rem var(--gray) solid;
+  }
+
+  &.ghost {
+    border: 0.1rem transparent solid;
+
+    &:not(:focus-visible):hover {
+      background-color: var(--hover-ghost-blue);
+      transition: background-color 0.2s;
+
+      .root:not(.withLabel) &::placeholder {
+        color: var(--blue);
+      }
+    }
+  }
 
   &:focus-visible {
     border-color: transparent;
     outline: 0.4rem var(--light-blue) solid;
   }
-
-  &::placeholder {
-    font-size: $placeholder-size;
-    color: var(--gray);
-    transition: color 0.2s;
-  }
-}
-
-.withLabel:placeholder-shown:not(:focus)::placeholder {
-  color: transparent;
 }
 
 .text {
@@ -43,16 +71,21 @@ $placeholder-size: 1.6rem;
   top: 50%;
   left: $padding;
 
-  font-size: $placeholder-size;
+  font-size: $font-size;
   color: var(--gray);
   transition: all 0.3s;
-}
+  pointer-events: none;
 
-.input:focus + .text,
-.input:not(:placeholder-shown) + .text {
-  transform: translateY(-5.8rem);
-  left: 0;
+  .input:focus-visible + &,
+  .input:not(:placeholder-shown) + & {
+    transform: translateY(-5.8rem);
+    left: 0;
 
-  font-size: 2rem;
-  color: var(--black);
+    font-size: 2rem;
+    color: var(--black);
+  }
+
+  .input:hover:not(:focus-visible) + &.ghost {
+    color: var(--blue);
+  }
 }

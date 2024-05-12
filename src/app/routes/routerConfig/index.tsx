@@ -5,12 +5,12 @@ import {ErrorPage} from '@pages/ErrorPage';
 import {paths} from '../paths';
 import type {RouteObject} from 'react-router-dom';
 
-const routeConfig: Array<RouteObject> = [
+const routerConfig: Array<RouteObject> = [
   {path: paths.main, element: <MainPage />, errorElement: <ErrorPage />},
   {path: paths.photoEditor, element: <PhotoEditorPage />},
 ];
 
-const router = createBrowserRouter(routeConfig);
+const router = createBrowserRouter(routerConfig);
 
 export function Router() {
   return <RouterProvider router={router} />;

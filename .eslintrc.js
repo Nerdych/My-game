@@ -47,6 +47,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/require-default-props': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'react/button-has-type': 'off',
     'react/function-component-definition': [
       'error',
       {
@@ -71,7 +72,15 @@ module.exports = {
     '@typescript-eslint/consistent-type-imports': 'error',
     '@typescript-eslint/no-shadow': 'error',
 
-    'i18next/no-literal-string': ['error', {mode: 'jsx-only'}],
+    'i18next/no-literal-string': [
+      'error',
+      {
+        mode: 'jsx-only',
+        'jsx-attributes': {
+          exclude: ['as', 'weight'],
+        },
+      },
+    ],
 
     'jsx-a11y/label-has-associated-control': [
       'error',
@@ -84,7 +93,7 @@ module.exports = {
 
   overrides: [
     {
-      files: ['src/**/*.ts', 'src/**/*.tsx', 'config/**/*.ts'],
+      files: ['src/**/*.ts', 'src/**/*.tsx', 'config/**/*.ts', 'config/**/*.tsx'],
       parserOptions: {
         project: 'tsconfig.json',
       },

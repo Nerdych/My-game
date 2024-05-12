@@ -1,0 +1,75 @@
+$padding-content: 1.4rem;
+
+.root {
+  display: block;
+
+  &[open] {
+    transition: padding-bottom 0.3s;
+    padding-bottom: $padding-content;
+  }
+}
+
+@mixin arrowStick {
+  $arrow-height: 0.2rem;
+  $arrow-width: 1.1rem;
+
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+
+  height: $arrow-height;
+  width: $arrow-width;
+  display: inline-block;
+
+  background-color: var(--black);
+  border-radius: 0.2rem;
+  transition: transform 0.3s;
+}
+
+.summary {
+  $border-radius: 0.2rem;
+  $transform-to-center: 0.3rem;
+
+  position: relative;
+
+  margin-bottom: 0;
+  padding-left: 3rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
+
+  &:focus-visible {
+    outline: 0.4rem var(--light-blue) solid;
+  }
+
+  &::before {
+    @include arrowStick();
+
+    transform-origin: right;
+    transform: translateY($transform-to-center) rotate(45deg);
+  }
+
+  &::after {
+    @include arrowStick();
+
+    left: 1rem;
+    transform-origin: left;
+    transform: translateY($transform-to-center) rotate(-45deg);
+  }
+
+  .root[open] & {
+    transition: margin-bottom 0.3s;
+    margin-bottom: $padding-content;
+
+    &::before {
+      transform: translateY(-$transform-to-center) rotate(-45deg);
+    }
+
+    &::after {
+      transform: translateY(-$transform-to-center) rotate(45deg);
+    }
+  }
+}

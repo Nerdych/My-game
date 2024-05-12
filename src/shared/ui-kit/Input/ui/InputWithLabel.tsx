@@ -1,14 +1,14 @@
 import cn from 'classnames';
 import styles from '../styles/Input.module.scss';
-import type {InputComponentProps} from '../types';
+import type {InputRequiredProps} from '../types';
 
-export function InputWithLabel(props: InputComponentProps) {
-  const {label, className, ...otherProps} = props;
+export function InputWithLabel(props: InputRequiredProps) {
+  const {label, className, variant, bold, ...otherProps} = props;
 
   return (
-    <label className={styles.root}>
-      <input className={cn(styles.input, styles.withLabel, className)} {...otherProps} />
-      <span className={styles.text}>{label}</span>
+    <label className={cn(styles.root, styles.label, styles.withLabel)}>
+      <input className={cn(styles.input, styles[variant], bold && styles.bold, className)} {...otherProps} />
+      <span className={cn(styles.text, styles[variant])}>{label}</span>
     </label>
   );
 }

@@ -1,8 +1,10 @@
 import type {HTMLProps} from 'react';
 
-type InputComponentCustomProps = {
+type CustomProps = {
   label?: string;
+  variant?: 'default' | 'ghost';
+  bold?: boolean;
 };
 
-export type InputNativeProps = HTMLProps<HTMLInputElement>;
-export type InputComponentProps = InputNativeProps & InputComponentCustomProps;
+export type InputProps = HTMLProps<HTMLInputElement> & CustomProps;
+export type InputRequiredProps = HTMLProps<HTMLInputElement> & Required<CustomProps>;

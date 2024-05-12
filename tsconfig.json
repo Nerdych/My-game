@@ -94,7 +94,7 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
 
-  "include": ["src/**/*.ts", "src/**/*.tsx", "config/**/*.ts"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "config/**/*.ts", "config/**/*.tsx", "types/*.d.ts"],
 
   // Устаналиваем модульность, которая используется при запуске webpack.config.ts с помощью tsc
   "ts-node": {

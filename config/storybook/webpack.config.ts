@@ -1,4 +1,5 @@
 import {merge} from 'webpack-merge';
+import {buildCopyPlugin} from '../webpack/plugins/buildCopyPlugin';
 import {buildFontsLoader} from '../webpack/loaders/buildFontsLoader';
 import {buildResolvers} from '../webpack/buildResolvers';
 import {buildBabelLoader} from '../webpack/loaders/buildBabelLoader';
@@ -30,7 +31,7 @@ export default (params: Params): Configuration => {
   const options = {isDev: false};
 
   const loaders = [buildBabelLoader(), buildCssLoader(options), buildSvgLoader(), buildFontsLoader(options)];
-  const plugins = [buildCssPlugin(options), buildDefinePlugin(options)];
+  const plugins = [buildCssPlugin(options), buildDefinePlugin(options), buildCopyPlugin()];
 
   const customConfig: Partial<Configuration> = {
     module: {

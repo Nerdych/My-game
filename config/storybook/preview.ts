@@ -1,5 +1,8 @@
-import type {Preview} from '@storybook/react';
 import '@app/styles/index.scss';
+import '@app/configs/i18n/config';
+import {flexDecorator} from './decorators/Flex';
+import {localizationDecorator} from './decorators/Localization/ui/Localization';
+import type {Preview} from '@storybook/react';
 
 const preview: Preview = {
   parameters: {
@@ -15,6 +18,21 @@ const preview: Preview = {
         {name: 'white', value: '#fff'},
         {name: 'black', value: '#000'},
       ],
+    },
+  },
+  decorators: [flexDecorator, localizationDecorator],
+  globalTypes: {
+    locale: {
+      name: 'Locale',
+      description: 'Internationalization locale',
+      toolbar: {
+        icon: 'globe',
+        items: [
+          {value: 'en', title: 'English'},
+          {value: 'ru', title: 'Russian'},
+        ],
+        showName: true,
+      },
     },
   },
 };

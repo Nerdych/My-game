@@ -106,6 +106,7 @@ const typographyProperties = [
 ];
 
 const displayElementProperties = [
+  'content',
   'box-sizing',
   ...getPropertyWithMinMax('height'),
   ...getPropertyWithMinMax('width'),
@@ -163,11 +164,17 @@ module.exports = {
   rules: {
     'block-no-empty': true,
     'color-hex-length': 'long',
-    'selector-class-pattern': '^[a-z][a-zA-Z0-9]+$',
+    'selector-class-pattern': '^[a-z]([a-zA-Z0-9]+)?$',
     'declaration-no-important': true,
     'declaration-empty-line-before': ['never', {ignore: 'after-declaration'}],
     'declaration-block-no-duplicate-properties': true,
-    'rule-empty-line-before': 'always',
+    'no-descending-specificity': [true, {ignore: ['selectors-within-list']}],
+    'rule-empty-line-before': [
+      'always',
+      {
+        except: ['first-nested'],
+      },
+    ],
     'property-disallowed-list': [['flex', 'grid'], {message: 'Используй более специфичные свойства'}],
     'unit-disallowed-list': [
       ['px', 'em'],
@@ -217,11 +224,11 @@ module.exports = {
       },
       {
         type: 'rule',
-        selector: '^&:\\w',
+        selector: '^.',
       },
       {
         type: 'rule',
-        selector: '^.',
+        selector: '^&:\\w',
       },
     ],
   },
