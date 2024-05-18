@@ -25,14 +25,15 @@
 
   @each $ext in $exts {
     $src: append($src, getSrcWithFormat($fullpath, getExtension($ext, $filename), getFormat($ext)), comma);
+
   }
 
   @font-face {
     font-family: $name;
-    src: $src;
     font-weight: $weight;
     font-style: $style;
     font-display: swap;
+    src: $src;
   }
 }
 

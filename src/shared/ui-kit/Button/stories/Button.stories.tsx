@@ -44,7 +44,7 @@ export const ButtonAccent: Story = {
   ...ButtonCommon,
   args: {
     variant: 'accent',
-    children: 'Акцентная кнопка',
+    children: 'Accent button',
   },
 };
 
@@ -52,7 +52,7 @@ export const ButtonRegular: Story = {
   ...ButtonCommon,
   args: {
     variant: 'regular',
-    children: 'Обычная кнопка',
+    children: 'Regular button',
   },
 };
 
@@ -60,6 +60,6 @@ export const ButtonGhost: Story = {
   ...ButtonCommon,
   args: {
     variant: 'ghost',
-    children: 'Второстепенная кнопка',
+    children: 'Ghost button',
   },
 };

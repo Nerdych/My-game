@@ -11,6 +11,11 @@
   &:focus-visible {
     outline: 0.4rem var(--light-blue) solid;
   }
+
+  &:active {
+    transform: scale(0.98);
+    transition: transform 0.2s;
+  }
 }
 
 .small {

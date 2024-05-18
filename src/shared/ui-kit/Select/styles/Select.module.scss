@@ -1,0 +1,161 @@
+$select-height: 3.2rem;
+
+@mixin arrow-stick() {
+  $arrow-height: 0.2rem;
+  $arrow-width: 1.1rem;
+
+  position: absolute;
+  top: calc(100% - $select-height + $select-height / 2);
+
+  content: '';
+  height: $arrow-height;
+  width: $arrow-width;
+  display: inline-block;
+
+  background-color: var(--gray);
+  border-radius: 0.2rem;
+  transition: transform 0.3s;
+  user-select: none;
+}
+
+@mixin arrow() {
+  $arrow-width: 0.8rem;
+
+  position: absolute;
+  top: calc(100% - $select-height + $select-height / 2);
+
+  content: '';
+  height: $arrow-width;
+  width: $arrow-width;
+  display: inline-block;
+
+  border-radius: 0.2rem;
+  transition: transform 0.3s;
+  user-select: none;
+}
+
+.root {
+  position: relative;
+
+  display: inline-block;
+  cursor: pointer;
+
+  &.default {
+    $transformY: 0.4rem;
+
+    &::before {
+      @include arrow-stick();
+      transform-origin: right;
+      transform: translateY($transformY) rotate(45deg);
+      right: 2rem;
+    }
+
+    &::after {
+      @include arrow-stick();
+      transform-origin: left;
+      transform: translateY($transformY) rotate(-45deg);
+      right: 1rem;
+    }
+
+    &:focus-within {
+      &::before {
+        transform: translateY(-$transformY) rotate(-45deg);
+      }
+
+      &::after {
+        transform: translateY(-$transformY) rotate(45deg);
+      }
+    }
+  }
+
+  &.ghost {
+    $transformY: 0.2rem;
+
+    --border-style: 0.2rem var(--blue) solid;
+
+    &::before {
+      @include arrow();
+      transform: translateY(calc(-50% - 0.2rem)) rotate(45deg);
+      right: 0.8rem;
+
+      border-top: var(--border-style);
+      border-left: var(--border-style);
+    }
+
+    &::after {
+      @include arrow();
+      transform: translateY(calc(-50% + 0.2rem)) rotate(45deg);
+      right: 0.8rem;
+
+      border-right: var(--border-style);
+      border-bottom: var(--border-style);
+    }
+
+    &:focus-within {
+      &::before {
+        transform: translateY(calc(-50% + 0.2rem)) rotate(225deg);
+      }
+
+      &::after {
+        transform: translateY(calc(-50% - 0.2rem)) rotate(225deg);
+      }
+    }
+
+    &:has(option[disabled]:checked) {
+      --border-style: 0.2rem var(--gray) solid;
+    }
+  }
+}
+
+.select {
+  height: $select-height;
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+
+  font-size: 1.6rem;
+
+  border-radius: 0.4rem;
+
+  &:focus-visible {
+    outline: 0.4rem var(--light-blue) solid;
+  }
+
+  .root.default & {
+    padding: 0 4.5rem 0 1.5rem;
+
+    color: var(--black);
+
+    background-color: var(--white);
+    border: 0.1rem var(--light-gray) solid;
+  }
+
+  .root.ghost & {
+    padding: 0 2.5rem 0 0;
+
+    color: var(--blue);
+
+    background-color: transparent;
+    border: none;
+    border-radius: none;
+  }
+
+  &:has(option[disabled]:checked) {
+    color: var(--gray);
+  }
+}
+
+.placeholder {
+  color: var(--gray);
+}
+
+.option {
+  color: var(--black);
+}
+
+.label {
+  margin-bottom: 0.4rem;
+  display: inline-block;
+
+  font-size: 1.6rem;
+}

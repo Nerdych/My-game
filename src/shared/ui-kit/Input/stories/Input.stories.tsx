@@ -38,14 +38,14 @@ const InputCommon: Story = {
 export const InputWithLabel: Story = {
   ...InputCommon,
   args: {
-    label: 'Название пака',
-    placeholder: 'Музыкальный пак by Nerd',
+    label: 'Pack name',
+    placeholder: 'Music pack by Nerd',
   },
 };
 
 export const InputWithoutLabel: Story = {
   ...InputCommon,
   args: {
-    placeholder: 'Музыкальный пак by Nerd',
+    placeholder: 'Music pack by Nerd',
   },
 };

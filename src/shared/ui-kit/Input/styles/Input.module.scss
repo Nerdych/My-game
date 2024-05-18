@@ -4,14 +4,12 @@ $font-size: 1.6rem;
 .root {
   display: inline-block;
   align-items: center;
-
-  &.withLabel {
-    margin-top: 4rem;
-  }
 }
 
 .label {
   position: relative;
+
+  margin-top: 4rem;
 }
 
 .input {
@@ -29,11 +27,11 @@ $font-size: 1.6rem;
     user-select: none;
   }
 
-  .withLabel &:placeholder-shown:not(:focus)::placeholder {
+  .label &:placeholder-shown:not(:focus)::placeholder {
     color: transparent;
   }
 
-  :not(.withLabel) &.ghost:not(:focus-visible):hover::placeholder {
+  &.root:not(.label).ghost:not(:focus-visible):hover::placeholder {
     color: var(--blue);
   }
 
@@ -42,7 +40,7 @@ $font-size: 1.6rem;
   }
 
   &.default {
-    border: 0.1rem var(--gray) solid;
+    border: 0.1rem var(--light-gray) solid;
   }
 
   &.ghost {
@@ -51,10 +49,6 @@ $font-size: 1.6rem;
     &:not(:focus-visible):hover {
       background-color: var(--hover-ghost-blue);
       transition: background-color 0.2s;
-
-      .root:not(.withLabel) &::placeholder {
-        color: var(--blue);
-      }
     }
   }
 
@@ -73,7 +67,7 @@ $font-size: 1.6rem;
 
   font-size: $font-size;
   color: var(--gray);
-  transition: all 0.3s;
+  transition: all 0.2s;
   pointer-events: none;
 
   .input:focus-visible + &,

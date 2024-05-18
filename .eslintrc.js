@@ -104,5 +104,11 @@ module.exports = {
         'no-unused-vars': 'off',
       },
     },
+    {
+      files: ['src/**/*.stories.*'],
+      rules: {
+        'i18next/no-literal-string': 'off',
+      },
+    },
   ],
 };

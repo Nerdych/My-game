@@ -14,51 +14,51 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const HeadingH1: Story = {
+export const HeaderH1: Story = {
   args: {
-    children: 'Заголовок первого уровня',
+    children: 'Header h1 level',
     as: 'h1',
   },
 };
 
-export const HeadingH2: Story = {
+export const HeaderH2: Story = {
   args: {
-    children: 'Заголовок второго уровня',
+    children: 'Header h2 level',
     as: 'h2',
   },
 };
 
-export const HeadingH3: Story = {
+export const HeaderH3: Story = {
   args: {
-    children: 'Заголовок третьего уровня',
+    children: 'Header h3 level',
     as: 'h3',
   },
 };
 
-export const HeadingH4: Story = {
+export const HeaderH4: Story = {
   args: {
-    children: 'Заголовок четвертого уровня',
+    children: 'Header h4 level',
     as: 'h4',
   },
 };
 
-export const HeadingH5: Story = {
+export const HeaderH5: Story = {
   args: {
-    children: 'Заголовок пятого уровня',
+    children: 'Header h5 level',
     as: 'h5',
   },
 };
 
-export const HeadingH6: Story = {
+export const HeaderH6: Story = {
   args: {
-    children: 'Заголовок шестого уровня',
+    children: 'Header h6 level',
     as: 'h6',
   },
 };
 
 export const HeadingBold: Story = {
   args: {
-    children: 'Заголовок первого уровня',
+    children: 'Header bold h1 level',
     as: 'h1',
     weight: 'bold',
   },
@@ -66,14 +66,14 @@ export const HeadingBold: Story = {
 
 export const HeadingParagraph: Story = {
   args: {
-    children: 'Параграф',
+    children: 'Paragraph',
     as: 'p',
   },
 };
 
 export const HeadingBlock: Story = {
   args: {
-    children: 'Блок',
+    children: 'Block',
     as: 'div',
   },
 };

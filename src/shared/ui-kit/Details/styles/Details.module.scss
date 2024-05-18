@@ -4,20 +4,20 @@ $padding-content: 1.4rem;
   display: block;
 
   &[open] {
-    transition: padding-bottom 0.3s;
     padding-bottom: $padding-content;
+    transition: padding-bottom 0.3s;
   }
 }
 
-@mixin arrowStick {
+@mixin arrow-stick() {
   $arrow-height: 0.2rem;
   $arrow-width: 1.1rem;
 
-  content: '';
   position: absolute;
-  left: 0;
   top: 50%;
+  left: 0;
 
+  content: '';
   height: $arrow-height;
   width: $arrow-width;
   display: inline-block;
@@ -37,32 +37,31 @@ $padding-content: 1.4rem;
   padding-left: 3rem;
   display: flex;
   align-items: center;
-  cursor: pointer;
+
   border-top-left-radius: $border-radius;
   border-top-right-radius: $border-radius;
-
-  &:focus-visible {
-    outline: 0.4rem var(--light-blue) solid;
-  }
+  cursor: pointer;
 
   &::before {
-    @include arrowStick();
-
+    @include arrow-stick();
     transform-origin: right;
     transform: translateY($transform-to-center) rotate(45deg);
   }
 
   &::after {
-    @include arrowStick();
-
-    left: 1rem;
+    @include arrow-stick();
     transform-origin: left;
     transform: translateY($transform-to-center) rotate(-45deg);
+    left: 1rem;
+  }
+
+  &:focus-visible {
+    outline: 0.4rem var(--light-blue) solid;
   }
 
   .root[open] & {
-    transition: margin-bottom 0.3s;
     margin-bottom: $padding-content;
+    transition: margin-bottom 0.3s;
 
     &::before {
       transform: translateY(-$transform-to-center) rotate(-45deg);

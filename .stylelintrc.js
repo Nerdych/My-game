@@ -159,27 +159,32 @@ const displayElementProperties = [
 ];
 
 module.exports = {
-  extends: 'stylelint-config-standard-scss',
-  plugins: ['stylelint-order'],
+  plugins: ['stylelint-order', 'stylelint-scss'],
   rules: {
     'block-no-empty': true,
-    'color-hex-length': 'long',
-    'selector-class-pattern': '^[a-z]([a-zA-Z0-9]+)?$',
     'declaration-no-important': true,
-    'declaration-empty-line-before': ['never', {ignore: 'after-declaration'}],
     'declaration-block-no-duplicate-properties': true,
+    'selector-class-pattern': '^[a-z]([a-zA-Z0-9]+)?$',
+    'color-hex-length': 'long',
     'no-descending-specificity': [true, {ignore: ['selectors-within-list']}],
+    'property-disallowed-list': [['flex', 'grid'], {message: 'Используй более специфичные свойства'}],
+
     'rule-empty-line-before': [
       'always',
       {
         except: ['first-nested'],
       },
     ],
-    'property-disallowed-list': [['flex', 'grid'], {message: 'Используй более специфичные свойства'}],
     'unit-disallowed-list': [
       ['px', 'em'],
       {message: 'Используй rem для указания гибких размеров', ignoreProperties: {px: [/\$.*/]}},
     ],
+
+    'scss/at-mixin-argumentless-call-parentheses': 'always',
+    'scss/dollar-variable-empty-line-after': ['always', {except: ['before-dollar-variable']}],
+    'scss/dollar-variable-colon-newline-after': 'always-multi-line',
+    'scss/dollar-variable-first-in-block': true,
+
     'order/properties-order': [
       [
         {
@@ -213,7 +218,8 @@ module.exports = {
       },
     ],
     'order/order': [
-      'declarations',
+      'dollar-variables',
+      'custom-properties',
       {
         type: 'at-rule',
         name: 'media',

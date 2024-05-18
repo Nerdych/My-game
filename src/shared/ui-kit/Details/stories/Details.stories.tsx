@@ -18,14 +18,14 @@ type Story = StoryObj<typeof meta>;
 
 export const DetailsText: Story = {
   args: {
-    header: <Heading as="h4">Заголовок</Heading>,
-    children: <Heading as="p">Скрытый текст</Heading>,
+    header: <Heading as="h4">Heading</Heading>,
+    children: <Heading as="p">Hidden text</Heading>,
   },
 };
 
 export const DetailsControl: Story = {
   args: {
-    header: <Input variant="ghost" bold placeholder="Музыкальный пак by Nerd" />,
-    children: <Heading as="p">Скрытый текст</Heading>,
+    header: <Input variant="ghost" placeholder="Music pack by Nerd" />,
+    children: <Heading as="p">Hidden text</Heading>,
   },
 };

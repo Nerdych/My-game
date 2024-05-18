@@ -1,7 +1,7 @@
 import '@app/styles/index.scss';
 import '@app/configs/i18n/config';
 import {flexDecorator} from './decorators/Flex';
-import {localizationDecorator} from './decorators/Localization/ui/Localization';
+import {localizationDecorator} from './decorators/Localization';
 import type {Preview} from '@storybook/react';
 
 const preview: Preview = {
