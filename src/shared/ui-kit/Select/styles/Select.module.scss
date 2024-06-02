@@ -1,6 +1,4 @@
-$select-height: 3.2rem;
-
-@mixin arrow-stick() {
+@mixin arrow-stick($select-height) {
   $arrow-height: 0.2rem;
   $arrow-width: 1.1rem;
 
@@ -18,7 +16,7 @@ $select-height: 3.2rem;
   user-select: none;
 }
 
-@mixin arrow() {
+@mixin arrow($select-height) {
   $arrow-width: 0.8rem;
 
   position: absolute;
@@ -35,7 +33,16 @@ $select-height: 3.2rem;
 }
 
 .root {
+  --select-height: 3.2rem;
   position: relative;
+
+  &.s {
+    --select-height: 3.2rem;
+  }
+
+  &.l {
+    --select-height: 5rem;
+  }
 
   display: inline-block;
   cursor: pointer;
@@ -44,14 +51,14 @@ $select-height: 3.2rem;
     $transformY: 0.4rem;
 
     &::before {
-      @include arrow-stick();
+      @include arrow-stick(var(--select-height));
       transform-origin: right;
       transform: translateY($transformY) rotate(45deg);
       right: 2rem;
     }
 
     &::after {
-      @include arrow-stick();
+      @include arrow-stick(var(--select-height));
       transform-origin: left;
       transform: translateY($transformY) rotate(-45deg);
       right: 1rem;
@@ -74,7 +81,7 @@ $select-height: 3.2rem;
     --border-style: 0.2rem var(--blue) solid;
 
     &::before {
-      @include arrow();
+      @include arrow(var(--select-height));
       transform: translateY(calc(-50% - 0.2rem)) rotate(45deg);
       right: 0.8rem;
 
@@ -83,7 +90,7 @@ $select-height: 3.2rem;
     }
 
     &::after {
-      @include arrow();
+      @include arrow(var(--select-height));
       transform: translateY(calc(-50% + 0.2rem)) rotate(45deg);
       right: 0.8rem;
 
@@ -108,17 +115,23 @@ $select-height: 3.2rem;
 }
 
 .select {
-  height: $select-height;
+  height: var(--select-height);
   width: 100%;
   display: inline-flex;
   align-items: center;
 
   font-size: 1.6rem;
 
-  border-radius: 0.4rem;
-
   &:focus-visible {
     outline: 0.4rem var(--light-blue) solid;
+  }
+
+  .root.s & {
+    border-radius: 0.4rem;
+  }
+
+  .root.l & {
+    border-radius: 1.2rem;
   }
 
   .root.default & {

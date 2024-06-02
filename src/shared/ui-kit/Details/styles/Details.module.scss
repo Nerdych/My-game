@@ -1,4 +1,5 @@
 $padding-content: 1.4rem;
+$arrow-column-width: 3rem;
 
 .root {
   display: block;
@@ -34,7 +35,7 @@ $padding-content: 1.4rem;
   position: relative;
 
   margin-bottom: 0;
-  padding-left: 3rem;
+  padding-left: $arrow-column-width;
   display: flex;
   align-items: center;
 
@@ -71,4 +72,8 @@ $padding-content: 1.4rem;
       transform: translateY(-$transform-to-center) rotate(45deg);
     }
   }
+}
+
+.content {
+  padding-left: $arrow-column-width;
 }

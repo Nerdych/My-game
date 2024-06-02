@@ -8,8 +8,11 @@ type Option = {
 
 type CustomProps = {
   options: Array<Option>;
+  size?: 's' | 'l';
   variant?: 'default' | 'ghost';
   label?: string;
 };
 
-export type SelectProps = HTMLProps<HTMLSelectElement> & CustomProps;
+type HTMLNativeProps = Omit<HTMLProps<HTMLSelectElement>, 'size'>;
+
+export type SelectProps = HTMLNativeProps & CustomProps;

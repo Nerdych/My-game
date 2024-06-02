@@ -77,7 +77,7 @@ module.exports = {
       {
         mode: 'jsx-only',
         'jsx-attributes': {
-          exclude: ['as', 'weight'],
+          exclude: ['as', 'weight', 'size', 'value'],
         },
       },
     ],

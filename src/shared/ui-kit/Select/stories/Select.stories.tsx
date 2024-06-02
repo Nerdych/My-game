@@ -13,6 +13,9 @@ const meta = {
     variant: {
       control: 'select',
     },
+    size: {
+      control: 'select',
+    },
   },
 } satisfies Meta<typeof Select>;
 
@@ -21,6 +24,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const allVariants: Array<ComponentProps<typeof Select>['variant']> = ['default', 'ghost'];
+const allSizes: Array<ComponentProps<typeof Select>['size']> = ['s', 'l'];
 
 const options = [
   {id: 1, text: 'First option', value: 'first'},
@@ -30,9 +34,9 @@ const options = [
 const SelectCommon: Story = {
   render: (props) => (
     <>
-      {allVariants.map((variant) => (
-        <Select {...props} key={variant} variant={variant} />
-      ))}
+      {allSizes.map((size) =>
+        allVariants.map((variant) => <Select {...props} size={size} key={variant} variant={variant} />)
+      )}
     </>
   ),
   args: {

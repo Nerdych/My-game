@@ -1,8 +1,8 @@
 import cn from 'classnames';
-import styles from '../styles/Input.module.scss';
-import type {InputWithLabelRequiredProps} from '../types';
+import styles from '../styles/TextField.module.scss';
+import type {TextFieldWithLabelRequiredProps} from '../types';
 
-export function InputWithLabel(props: InputWithLabelRequiredProps) {
+export function TextFieldWithLabel(props: TextFieldWithLabelRequiredProps) {
   const {label, className, variant, bold, ...otherProps} = props;
 
   return (

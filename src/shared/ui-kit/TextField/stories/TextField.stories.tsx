@@ -1,10 +1,10 @@
-import {Input} from '../ui/Input';
+import {TextField} from '../ui/TextField';
 import type {ComponentProps} from 'react';
 import type {Meta, StoryObj} from '@storybook/react';
 
 const meta = {
-  title: 'ui-kit/Input',
-  component: Input,
+  title: 'ui-kit/TextField',
+  component: TextField,
   parameters: {
     layout: 'centered',
   },
@@ -17,26 +17,26 @@ const meta = {
   args: {
     variant: 'default',
   },
-} satisfies Meta<typeof Input>;
+} satisfies Meta<typeof TextField>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const allVariants: Array<ComponentProps<typeof Input>['variant']> = ['default', 'ghost'];
+const allVariants: Array<ComponentProps<typeof TextField>['variant']> = ['default', 'ghost'];
 
-const InputCommon: Story = {
+const TextFieldCommon: Story = {
   render: (props) => (
     <>
       {allVariants.map((variant) => (
-        <Input {...props} key={variant} variant={variant} />
+        <TextField {...props} key={variant} variant={variant} />
       ))}
     </>
   ),
 };
 
 export const InputWithLabel: Story = {
-  ...InputCommon,
+  ...TextFieldCommon,
   args: {
     label: 'Pack name',
     placeholder: 'Music pack by Nerd',
@@ -44,7 +44,7 @@ export const InputWithLabel: Story = {
 };
 
 export const InputWithoutLabel: Story = {
-  ...InputCommon,
+  ...TextFieldCommon,
   args: {
     placeholder: 'Music pack by Nerd',
   },

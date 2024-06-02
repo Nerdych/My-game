@@ -6,4 +6,6 @@ type CustomProps = {
   contentClassName?: string;
 };
 
-export type DetailsProps = CustomProps & PropsWithChildren & HTMLProps<HTMLDetailsElement>;
+type HTMLNativeProps = HTMLProps<HTMLDetailsElement>;
+
+export type DetailsProps = CustomProps & PropsWithChildren & HTMLNativeProps;

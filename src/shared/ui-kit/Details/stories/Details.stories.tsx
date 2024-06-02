@@ -1,4 +1,4 @@
-import {Input} from '@shared/ui-kit/Input';
+import {Input} from '@shared/ui-kit/TextField';
 import {Heading} from '@shared/ui-kit/Heading';
 import {Details} from '../ui/Details';
 import type {Meta, StoryObj} from '@storybook/react';

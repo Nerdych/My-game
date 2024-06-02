@@ -5,4 +5,6 @@ type CustomProps = {
   weight?: 'bold' | 'normal';
 };
 
-export type HeadingProps = CustomProps & PropsWithChildren & HTMLProps<HTMLHeadingElement>;
+type HTMLNativeProps = HTMLProps<HTMLHeadingElement>;
+
+export type HeadingProps = CustomProps & PropsWithChildren & HTMLNativeProps;

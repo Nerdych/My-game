@@ -5,4 +5,6 @@ type CustomProps = {
   size?: 'small' | 'medium' | 'large';
 };
 
-export type ButtonProps = CustomProps & PropsWithChildren & ButtonHTMLAttributes<HTMLButtonElement>;
+type HTMLNativeProps = ButtonHTMLAttributes<HTMLButtonElement>;
+
+export type ButtonProps = CustomProps & PropsWithChildren & HTMLNativeProps;
