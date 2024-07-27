@@ -5,12 +5,13 @@ import {useState} from 'react';
 import styles from '../styles/Header.module.scss';
 import {DifficultySelect} from './DifficultySelect';
 
+import {TagsButton} from './TagsButton';
 import type {ChangeEvent} from 'react';
 import type {HeaderProps} from '../types';
 
-function Header(props: HeaderProps) {
+const Header = (props: HeaderProps) => {
   const {} = props;
-  const {t} = useTranslation('features/pack-common-info-form');
+  const {t} = useTranslation('features/pack/index');
 
   ///
 
@@ -40,10 +41,11 @@ function Header(props: HeaderProps) {
           <TextField placeholder={t('packName', {defaultValue: 'Pack name'})} />
           <TextField placeholder={t('author', {defaultValue: 'Pack author'})} />
           <DifficultySelect size="l" />
+          <TagsButton />
         </div>
       </form>
     </section>
   );
-}
+};
 
 export {Header};

@@ -1,4 +1,4 @@
-import {PackCommonInfoForm} from '@features/PackCommonInfoForm';
+import {PackCommonInfoForm} from '@features/pack/ui/PackCommonInfoForm';
 
 function PackCommonInfoCreate() {
   return (

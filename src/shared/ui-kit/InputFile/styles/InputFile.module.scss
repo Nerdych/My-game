@@ -1,6 +1,7 @@
 @import '@app/styles/utils';
 
 .root {
+  max-width: 100%;
   display: inline-flex;
   align-items: center;
 
@@ -13,8 +14,12 @@
 }
 
 .text {
+  overflow: hidden;
+
   font-size: 1.6rem;
   color: var(--gray);
+  text-overflow: ellipsis;
+  word-break: break-all;
 
   .root:hover &,
   .root:focus-within & {
@@ -37,6 +42,8 @@
   width: $size;
   margin-right: 1rem;
   display: inline-flex;
+  flex-basis: $size;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
 
@@ -59,10 +66,14 @@
 }
 
 .preview {
-  height: 11rem;
-  width: 11rem;
+  $size: 11rem;
+
+  height: $size;
+  width: $size;
   margin-right: 1rem;
   overflow: hidden;
+  flex-basis: $size;
+  flex-shrink: 0;
 
   object-fit: cover;
   border-radius: 1rem;

@@ -1,6 +1,6 @@
 import type {CommonIconProps} from '../types';
 
-function UploadIcon(props: CommonIconProps) {
+const UploadIcon = (props: CommonIconProps) => {
   const {width = '24', height = '24', ...otherProps} = props;
 
   return (
@@ -9,8 +9,8 @@ function UploadIcon(props: CommonIconProps) {
       width={width}
       height={height}
       viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
       fill="none"
+      xmlns="http://www.w3.org/2000/svg"
     >
       <path
         d="M12 15L12 2M12 2L15 5.5M12 2L9 5.5"
@@ -27,6 +27,6 @@ function UploadIcon(props: CommonIconProps) {
       />
     </svg>
   );
-}
+};
 
 export {UploadIcon};

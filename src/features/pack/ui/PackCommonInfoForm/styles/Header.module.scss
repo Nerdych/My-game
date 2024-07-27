@@ -6,6 +6,7 @@
 
   &:hover {
     background-color: var(--ghost-blue);
+    transition: background-color 0.2s;
   }
 }
 
@@ -19,6 +20,7 @@
   display: grid;
   grid-auto-flow: column;
   grid-template-rows: 1fr 1fr;
+  flex-shrink: 0;
   gap: 1rem;
   align-items: center;
 }

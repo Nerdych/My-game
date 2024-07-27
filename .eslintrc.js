@@ -2,12 +2,13 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   extends: [
     'airbnb',
-    'prettier',
     'plugin:react/recommended',
     'plugin:storybook/recommended',
     'plugin:i18next/recommended',
+    'plugin:jsx-a11y/recommended',
+    'plugin:prettier/recommended',
   ],
-  plugins: ['@typescript-eslint', 'react', 'i18next'],
+  plugins: ['@typescript-eslint', 'react', 'i18next', 'react-hooks', 'jsx-a11y'],
   env: {
     browser: true,
     jest: true,
@@ -29,8 +30,9 @@ module.exports = {
 
     'no-shadow': 'off',
     'no-underscore-dangle': 'off',
-    'no-console': 'error',
+    'no-console': ['error', {allow: ['error']}],
     'no-multiple-empty-lines': ['error', {max: 1}],
+    'no-useless-constructor': 'off',
 
     'object-curly-spacing': ['error', 'never'],
     'object-curly-newline': [
@@ -39,7 +41,18 @@ module.exports = {
         ObjectExpression: {consistent: true},
         ObjectPattern: {consistent: true},
         ImportDeclaration: 'never',
-        ExportDeclaration: 'never',
+        ExportDeclaration: {multiline: true, minProperties: 3},
+      },
+    ],
+
+    'lines-between-class-members': [
+      'error',
+      {
+        enforce: [
+          {blankLine: 'always', prev: '*', next: 'method'},
+          {blankLine: 'always', prev: 'method', next: '*'},
+          {blankLine: 'never', prev: 'field', next: 'field'},
+        ],
       },
     ],
 
@@ -51,10 +64,12 @@ module.exports = {
     'react/function-component-definition': [
       'error',
       {
-        namedComponents: 'function-declaration',
+        namedComponents: 'arrow-function',
         unnamedComponents: 'arrow-function',
       },
     ],
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'error',
 
     'import/extensions': 'off',
     'import/no-unresolved': 'off',
@@ -75,10 +90,7 @@ module.exports = {
     'i18next/no-literal-string': [
       'error',
       {
-        mode: 'jsx-only',
-        'jsx-attributes': {
-          exclude: ['as', 'weight', 'size', 'value'],
-        },
+        mode: 'jsx-text-only',
       },
     ],
 
@@ -87,6 +99,13 @@ module.exports = {
       {
         assert: 'either',
         depth: 3,
+      },
+    ],
+
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
       },
     ],
   },

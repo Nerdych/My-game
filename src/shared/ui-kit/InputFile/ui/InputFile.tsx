@@ -4,9 +4,9 @@ import {guards} from '@shared/guards';
 import styles from '../styles/InputFile.module.scss';
 import type {InputFileProps} from '../types';
 
-export function InputFile(props: InputFileProps) {
+const InputFile = (props: InputFileProps) => {
   const {fileName, previewUrl, ...otherProps} = props;
-  const {t} = useTranslation('ui-kit');
+  const {t} = useTranslation('ui-kit/input-file');
 
   const hasValue = guards.defined(fileName);
   const hasPreview = guards.defined(previewUrl);
@@ -23,4 +23,6 @@ export function InputFile(props: InputFileProps) {
       <input className={styles.input} type="file" {...otherProps} />
     </label>
   );
-}
+};
+
+export {InputFile};

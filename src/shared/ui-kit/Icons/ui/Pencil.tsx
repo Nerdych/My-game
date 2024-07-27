@@ -1,6 +1,6 @@
 import type {CommonIconProps} from '../types';
 
-function EditIcon(props: CommonIconProps) {
+const PencilIcon = (props: CommonIconProps) => {
   const {width = '24', height = '24', ...otherProps} = props;
 
   return (
@@ -20,6 +20,6 @@ function EditIcon(props: CommonIconProps) {
       />
     </svg>
   );
-}
+};
 
-export {EditIcon};
+export {PencilIcon as EditIcon};

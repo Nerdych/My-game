@@ -1,0 +1,41 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0.6;
+  background-color: var(--gray);
+}
+
+.modal {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+
+  min-width: 40rem;
+  padding: 0 2rem;
+  overflow: hidden;
+
+  background-color: var(--white);
+  border-radius: 1.2rem;
+}
+
+.closeButton {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+
+  color: var(--gray);
+
+  &:hover {
+    color: var(--black);
+    transition: color 0.2s;
+  }
+}
