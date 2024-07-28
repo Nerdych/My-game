@@ -1,9 +1,9 @@
 import {createElement, Suspense, useMemo, useRef, useState} from 'react';
 import {createPortal} from 'react-dom';
-import {useStableCallback} from '@shared/hooks/useStableCallback/useStableCallback';
+import {useStableCallback} from '@shared/lib/hooks/useStableCallback';
 import {ModalContext} from './ModalContext';
-import type {Undefinable} from '@shared/utilityTypes';
-import type {Close, ModalComponent, ModalItem, ModalList, ModalProviderProps, OpenModal} from '../types';
+import type {Undefinable} from '@shared/lib/utilityTypes';
+import type {Close, CloseProp, ModalComponent, ModalItem, ModalList, ModalProviderProps} from '../types';
 
 const modalContainer = document.body;
 
@@ -12,8 +12,11 @@ const ModalProvider = (props: ModalProviderProps) => {
   const [modalList, setModalList] = useState<ModalList>([]);
   const countModalsRef = useRef(0);
 
-  const openModal: OpenModal = useStableCallback(
-    <Props, Result>(content: ModalComponent<Props, Result>, modalProps: Props) =>
+  const openModal = useStableCallback(
+    <Result, Props extends CloseProp<Result>>(
+      content: ModalComponent<Result, Props>,
+      modalPropsWithoutClose?: Omit<Props, 'close'>,
+    ) =>
       new Promise<Undefinable<Result>>((resolve) => {
         const id = countModalsRef.current;
         countModalsRef.current += 1;
@@ -23,21 +26,24 @@ const ModalProvider = (props: ModalProviderProps) => {
           setModalList((prev) => prev.filter((modalItem) => modalItem.id !== id));
         };
 
-        const modal: ModalItem<Props, Result> = {
+        const modalProps = {
+          ...modalPropsWithoutClose,
+          close,
+        } as Props;
+
+        const modal: ModalItem<Result, Props> = {
           id,
           content,
           modalProps,
-          close,
         };
 
         setModalList((prev) => [...prev, modal]);
-      })
+      }),
   );
 
-  const renderPortal = <Props, Result>(modalItem: ModalItem<Props, Result>) => {
-    const {content, close, modalProps} = modalItem;
-    // TODO: Разобраться с Suspense
-    const modal = <Suspense>{createElement(content, {close, ...modalProps})}</Suspense>;
+  const renderPortal = <Result, Props extends CloseProp<Result>>(modalItem: ModalItem<Result, Props>) => {
+    const {content, modalProps} = modalItem;
+    const modal = <Suspense>{createElement(content, modalProps)}</Suspense>;
 
     return createPortal(modal, modalContainer);
   };
@@ -46,7 +52,7 @@ const ModalProvider = (props: ModalProviderProps) => {
     () => ({
       openModal,
     }),
-    [openModal]
+    [openModal],
   );
 
   return (

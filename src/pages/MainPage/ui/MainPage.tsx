@@ -2,7 +2,7 @@ import {Heading} from '@shared/ui-kit/Heading';
 import {PackCommonInfoCreate} from '@widgets/pack/PackCommonInfoCreate';
 import {useTranslation} from 'react-i18next';
 
-function MainPage() {
+const MainPage = () => {
   const {t} = useTranslation('main-page');
 
   return (
@@ -14,6 +14,6 @@ function MainPage() {
       <PackCommonInfoCreate />
     </main>
   );
-}
+};
 
 export default MainPage;

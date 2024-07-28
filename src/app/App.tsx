@@ -4,10 +4,10 @@ import {ModalProvider} from '@shared/providers/modal';
 import './styles/index.scss';
 import './configs/i18n/config';
 
-export function App() {
+export const App = () => {
   return (
     <ModalProvider>
       <Router />
     </ModalProvider>
   );
-}
+};

@@ -12,7 +12,9 @@ h4,
 h5,
 h6,
 ul,
-li {
+li,
+fieldset,
+legend {
   all: unset;
 
   box-sizing: border-box;

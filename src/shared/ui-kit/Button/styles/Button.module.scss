@@ -1,4 +1,6 @@
 .root {
+  height: fit-content;
+
   font-size: 1.7rem;
   line-height: 2.2rem;
   cursor: pointer;
@@ -22,18 +24,30 @@
   padding: 0.4rem 1rem;
 
   border-radius: 4rem;
+
+  &.square {
+    padding: 0.4rem;
+  }
 }
 
 .medium {
   padding: 0.7rem 1.4rem;
 
   border-radius: 4rem;
+
+  &.square {
+    padding: 0.7rem;
+  }
 }
 
 .large {
   padding: 1.4rem 2rem;
 
   border-radius: 1.2rem;
+
+  &.square {
+    padding: 1.4rem;
+  }
 }
 
 .accent {

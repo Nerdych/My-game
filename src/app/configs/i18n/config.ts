@@ -8,7 +8,6 @@ i18n
   .use(initReactI18next)
   .use(LanguageDetector)
   .init({
-    lng: 'ru',
     fallbackLng: 'ru',
     supportedLngs: ['ru', 'en'],
     debug: __IS_DEV__,
@@ -20,6 +19,12 @@ i18n
 
     backend: {
       loadPath: '/locales/{{lng}}/{{ns}}.json',
+    },
+
+    detection: {
+      order: ['querystring', 'cookie', 'localStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
+      caches: ['localStorage'],
+      lookupQuerystring: 'lang', // Название параметра для поиска в querystring
     },
   });
 

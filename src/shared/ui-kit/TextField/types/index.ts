@@ -1,20 +1,19 @@
 import type {HTMLProps} from 'react';
 
-type CommonProps = {
+type CustomProps = {
   variant?: 'default' | 'ghost';
   bold?: boolean;
 };
 
+type HTMLNativeProps = HTMLProps<HTMLInputElement>;
 type TextFieldWithLabelCustomProps = {
   label?: string;
-} & CommonProps;
-
-type HTMLNativeProps = HTMLProps<HTMLInputElement>;
+} & CustomProps;
 
 export type TextFieldWithLabelProps = HTMLNativeProps & TextFieldWithLabelCustomProps;
-export type TextFieldWithoutLabelProps = HTMLNativeProps & CommonProps;
+export type TextFieldWithoutLabelProps = HTMLNativeProps & CustomProps;
 
 export type TextFieldProps = TextFieldWithLabelProps & TextFieldWithoutLabelProps;
 
 export type TextFieldWithLabelRequiredProps = HTMLNativeProps & Required<TextFieldWithLabelCustomProps>;
-export type TextFieldWithoutLabelRequiredProps = HTMLNativeProps & Required<CommonProps>;
+export type TextFieldWithoutLabelRequiredProps = HTMLNativeProps & Required<CustomProps>;

@@ -18,23 +18,29 @@
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
+}
 
+.modalContent {
+  max-height: 90vh;
   min-width: 40rem;
-  padding: 0 2rem;
   overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 
   background-color: var(--white);
   border-radius: 1.2rem;
 }
 
 .closeButton {
+  z-index: 1000;
   position: absolute;
-  top: 0.6rem;
-  right: 0.6rem;
+  top: 0;
+  right: -4rem;
 
   color: var(--gray);
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     color: var(--black);
     transition: color 0.2s;
   }

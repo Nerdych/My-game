@@ -1,7 +1,10 @@
 import type {CloseProp} from '@shared/providers/modal';
 import type {FC, PropsWithChildren} from 'react';
 
-type ModalProps = PropsWithChildren & CloseProp<unknown>;
+type ModalProps = PropsWithChildren &
+  CloseProp<unknown> & {
+    className?: string;
+  };
 
 type HeaderProps = PropsWithChildren & {
   className?: string;

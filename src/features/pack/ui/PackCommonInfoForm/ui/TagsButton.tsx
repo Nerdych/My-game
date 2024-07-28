@@ -1,7 +1,7 @@
 import {useTranslation} from 'react-i18next';
 import {useModal} from '@shared/providers/modal/hooks/useModal';
 import {Button} from '@shared/ui-kit/Button';
-import TagsModal from './TagsModal';
+import {TagsModal} from '@features/pack/ui/TagsModal';
 
 const TagsButton = () => {
   const {t} = useTranslation('features/pack/tags-button');
@@ -13,7 +13,7 @@ const TagsButton = () => {
 
   return (
     <Button size="large" variant="ghost" onClick={openTagsModal}>
-      {t('tags', {defaultValue: 'Теги'})}
+      {t('tags', {defaultValue: 'Tags'})}
     </Button>
   );
 };

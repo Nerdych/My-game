@@ -3,7 +3,7 @@ import styles from '../styles/Select.module.scss';
 import {OptionsList} from './OptionsList';
 import type {SelectProps} from '../types';
 
-export function Select(props: SelectProps) {
+export const Select = (props: SelectProps) => {
   const {label, size = 's', variant = 'default', options, placeholder, ...otherProps} = props;
 
   return (
@@ -21,4 +21,4 @@ export function Select(props: SelectProps) {
       </select>
     </label>
   );
-}
+};

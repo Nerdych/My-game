@@ -2,7 +2,7 @@ import {TextFieldWithLabel} from './TextFieldWithLabel';
 import {TextFieldWithoutLabel} from './TextFieldWithoutLabel';
 import type {TextFieldProps} from '../types';
 
-export function TextField(props: TextFieldProps) {
+export const TextField = (props: TextFieldProps) => {
   const {label, type = 'text', variant = 'default', bold = false, spellCheck = false, ...otherProps} = props;
   const commonProps = {type, spellCheck, bold, variant};
 
@@ -11,4 +11,4 @@ export function TextField(props: TextFieldProps) {
   ) : (
     <TextFieldWithoutLabel {...commonProps} {...otherProps} />
   );
-}
+};

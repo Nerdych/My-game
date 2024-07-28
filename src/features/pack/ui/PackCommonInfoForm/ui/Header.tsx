@@ -2,6 +2,7 @@ import {InputFile} from '@shared/ui-kit/InputFile';
 import {TextField} from '@shared/ui-kit/TextField';
 import {useTranslation} from 'react-i18next';
 import {useState} from 'react';
+import {Form} from '@shared/ui-kit/Form';
 import styles from '../styles/Header.module.scss';
 import {DifficultySelect} from './DifficultySelect';
 
@@ -32,7 +33,7 @@ const Header = (props: HeaderProps) => {
 
   return (
     <section>
-      <form className={styles.form}>
+      <Form className={styles.form}>
         <div className={styles.leftSide}>
           <InputFile onChange={onChange} previewUrl={previewUrl} fileName={fileName} />
         </div>
@@ -43,7 +44,7 @@ const Header = (props: HeaderProps) => {
           <DifficultySelect size="l" />
           <TagsButton />
         </div>
-      </form>
+      </Form>
     </section>
   );
 };

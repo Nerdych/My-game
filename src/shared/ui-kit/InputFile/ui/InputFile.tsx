@@ -1,6 +1,6 @@
 import {useTranslation} from 'react-i18next';
 import {EditIcon, UploadIcon} from '@shared/ui-kit/Icons';
-import {guards} from '@shared/guards';
+import {guards} from '@shared/lib/guards';
 import styles from '../styles/InputFile.module.scss';
 import type {InputFileProps} from '../types';
 

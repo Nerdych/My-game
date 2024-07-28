@@ -1,0 +1,17 @@
+.root {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  border-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
