@@ -1,0 +1,14 @@
+.root {
+  display: inline-block;
+
+  border-radius: 1rem;
+
+  &:hover {
+    background-color: var(--ghost-blue);
+    transition: background-color 0.2s;
+  }
+}
+
+.active {
+  background-color: var(--ghost-blue);
+}

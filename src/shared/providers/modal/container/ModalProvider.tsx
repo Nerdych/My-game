@@ -3,7 +3,15 @@ import {createPortal} from 'react-dom';
 import {useStableCallback} from '@shared/lib/hooks/useStableCallback';
 import {ModalContext} from './ModalContext';
 import type {Undefinable} from '@shared/lib/utilityTypes';
-import type {Close, CloseProp, ModalComponent, ModalItem, ModalList, ModalProviderProps} from '../types';
+import type {
+  Close,
+  CloseProp,
+  ModalComponent,
+  ModalItem,
+  ModalList,
+  ModalProviderProps,
+  PropsWithoutClose,
+} from '../types';
 
 const modalContainer = document.body;
 
@@ -13,10 +21,7 @@ const ModalProvider = (props: ModalProviderProps) => {
   const countModalsRef = useRef(0);
 
   const openModal = useStableCallback(
-    <Result, Props extends CloseProp<Result>>(
-      content: ModalComponent<Result, Props>,
-      modalPropsWithoutClose?: Omit<Props, 'close'>,
-    ) =>
+    <Props, Result>(content: ModalComponent<Props, Result>, modalPropsWithoutClose?: PropsWithoutClose<Props>) =>
       new Promise<Undefinable<Result>>((resolve) => {
         const id = countModalsRef.current;
         countModalsRef.current += 1;
@@ -31,7 +36,7 @@ const ModalProvider = (props: ModalProviderProps) => {
           close,
         } as Props;
 
-        const modal: ModalItem<Result, Props> = {
+        const modal: ModalItem<Props, Result> = {
           id,
           content,
           modalProps,
@@ -41,7 +46,7 @@ const ModalProvider = (props: ModalProviderProps) => {
       }),
   );
 
-  const renderPortal = <Result, Props extends CloseProp<Result>>(modalItem: ModalItem<Result, Props>) => {
+  const renderPortal = <Result, Props extends CloseProp<Result>>(modalItem: ModalItem<Props, Result>) => {
     const {content, modalProps} = modalItem;
     const modal = <Suspense>{createElement(content, modalProps)}</Suspense>;
 

@@ -4,7 +4,7 @@ import {OptionsList} from './OptionsList';
 import type {SelectProps} from '../types';
 
 export const Select = (props: SelectProps) => {
-  const {label, size = 's', variant = 'default', options, placeholder, ...otherProps} = props;
+  const {label, size = 's', variant = 'default', options = [], placeholder, ...otherProps} = props;
 
   return (
     <label className={cn(styles.root, styles[variant], styles[size])}>

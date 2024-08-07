@@ -1,13 +1,5 @@
 .form {
   padding: 2rem;
-  display: flex;
-
-  border-radius: 1rem;
-
-  &:hover {
-    background-color: var(--ghost-blue);
-    transition: background-color 0.2s;
-  }
 }
 
 .leftSide {
@@ -23,4 +15,8 @@
   flex-shrink: 0;
   gap: 1rem;
   align-items: center;
+}
+
+.fields {
+  display: flex;
 }

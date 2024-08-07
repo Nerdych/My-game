@@ -1,0 +1,58 @@
+.root {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
+  opacity: 0.4;
+  background-color: var(--white);
+  border: 0.1rem solid var(--black);
+  border-radius: 1rem;
+  box-shadow: 0 0.4rem 1rem var(--ghost-gray);
+  transition:
+    transform 0.4s,
+    opacity 0.2s;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.button {
+  padding: 1rem;
+
+  &:hover {
+    background-color: var(--ghost-gray);
+    transition:
+      color 0.2s,
+      background-color 0.2s;
+  }
+
+  &.positiveButton {
+    &:hover {
+      color: var(--blue);
+    }
+  }
+
+  &.negativeButton {
+    &:hover {
+      color: var(--red);
+    }
+  }
+}
+
+.list {
+  &:not(:last-child) {
+    border-right: 0.1rem solid var(--black);
+  }
+}
+
+.divider {
+  height: 100%;
+  width: 0.2rem;
+
+  background-color: var(--black);
+}

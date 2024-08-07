@@ -8,7 +8,7 @@ import {Body} from './Body';
 import {Footer} from './Footer';
 import type {ModalComponent, ModalProps} from '../types';
 
-const Modal: ModalComponent = (props: ModalProps) => {
+const Modal: ModalComponent = <T,>(props: ModalProps<T>) => {
   const {children, close, className} = props;
   const {t} = useTranslation('ui-kit/modal');
 

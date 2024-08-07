@@ -1,6 +1,5 @@
 import type {ChangeEvent} from 'react';
 import type {Tag, TagCategory} from '@entities/tag';
-import type {CloseProp} from '@shared/providers/modal';
 import type {ModalProps} from '@shared/ui-kit/Modal';
 
 type UseTagsModalParams = Tag[];
@@ -12,7 +11,7 @@ type OnClickTag = (tag: Tag, event: ChangeEvent<HTMLInputElement>) => void;
 type IsTagInclude = (tag: Tag) => boolean;
 
 type TagsModalResult = Tag[];
-type TagsModalProps = ModalProps & CloseProp<TagsModalResult>;
+type TagsModalProps = ModalProps<TagsModalResult>;
 
 type DefaultTagsProps = {
   defaultCategoriesWithTags: TagCategory[];

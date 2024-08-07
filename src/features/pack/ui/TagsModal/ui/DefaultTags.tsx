@@ -11,7 +11,7 @@ const DefaultTags: FC<DefaultTagsProps> = (props) => {
     <ul>
       {defaultCategoriesWithTags.map((category) => (
         <li className={styles.category} key={category.name}>
-          <Text className={styles.categoryHeader} as="div" size="large">
+          <Text className={styles.categoryHeader} as="div" size="l">
             {category.name}
           </Text>
 

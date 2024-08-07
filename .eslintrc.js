@@ -61,6 +61,7 @@ module.exports = {
     'react/require-default-props': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/button-has-type': 'off',
+    'react/prop-types': 'off',
     'react/function-component-definition': [
       'error',
       {

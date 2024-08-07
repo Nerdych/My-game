@@ -1,8 +1,8 @@
 import type {CloseProp} from '@shared/providers/modal';
-import type {FC, PropsWithChildren} from 'react';
+import type {FC, PropsWithChildren, ReactNode} from 'react';
 
-type ModalProps = PropsWithChildren &
-  CloseProp<unknown> & {
+type ModalProps<T> = PropsWithChildren &
+  CloseProp<T> & {
     className?: string;
   };
 
@@ -18,7 +18,8 @@ type FooterProps = PropsWithChildren & {
   className?: string;
 };
 
-type ModalComponent = FC<ModalProps> & {
+type ModalComponent = {
+  <T>(props: ModalProps<T>): ReactNode;
   Header: FC<HeaderProps>;
   Body: FC<BodyProps>;
   Footer: FC<FooterProps>;

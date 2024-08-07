@@ -1,0 +1,19 @@
+.root {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+
+  &:empty {
+    margin-top: 0;
+  }
+}
+
+.tag {
+  padding: 0.8rem;
+
+  color: var(--white);
+
+  background-color: var(--light-blue);
+  border-radius: 2.4rem;
+}

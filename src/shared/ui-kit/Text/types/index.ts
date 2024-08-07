@@ -2,7 +2,7 @@ import type {HTMLProps, PropsWithChildren} from 'react';
 
 type CustomProps = {
   as?: 'div' | 'span' | 'p';
-  size?: 'small' | 'medium' | 'large';
+  size?: 's' | 'm' | 'l';
   weight?: 'bold' | 'normal';
 };
 

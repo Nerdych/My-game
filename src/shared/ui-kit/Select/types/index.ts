@@ -1,9 +1,9 @@
 import type {HTMLProps} from 'react';
 
-type Option = {
+type Option<T = string | number> = {
   id: string | number;
   text: string;
-  value: string | number;
+  value: T;
 };
 
 type CustomProps = {
@@ -15,4 +15,6 @@ type CustomProps = {
 
 type HTMLNativeProps = Omit<HTMLProps<HTMLSelectElement>, 'size'>;
 
-export type SelectProps = HTMLNativeProps & CustomProps;
+type SelectProps = HTMLNativeProps & CustomProps;
+
+export type {Option, SelectProps};

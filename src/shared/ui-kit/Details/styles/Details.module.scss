@@ -60,7 +60,7 @@ $arrow-column-width: 3rem;
     outline: 0.4rem var(--light-blue) solid;
   }
 
-  .root[open] & {
+  .root[open] > & {
     margin-bottom: $padding-content;
     transition: margin-bottom 0.3s;
 

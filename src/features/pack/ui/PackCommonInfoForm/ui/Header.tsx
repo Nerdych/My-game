@@ -3,10 +3,12 @@ import {TextField} from '@shared/ui-kit/TextField';
 import {useTranslation} from 'react-i18next';
 import {useState} from 'react';
 import {Form} from '@shared/ui-kit/Form';
+import {WrapperContext} from '@features/pack/ui/ContextMenu/ui/WrapperContext';
 import styles from '../styles/Header.module.scss';
 import {DifficultySelect} from './DifficultySelect';
 
 import {TagsButton} from './TagsButton';
+import {TagList} from './TagList';
 import type {ChangeEvent} from 'react';
 import type {HeaderProps} from '../types';
 
@@ -16,6 +18,7 @@ const Header = (props: HeaderProps) => {
 
   ///
 
+  const [tags, setTags] = useState([]);
   const [file, setFile] = useState<File>();
 
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -32,20 +35,24 @@ const Header = (props: HeaderProps) => {
   ///
 
   return (
-    <section>
-      <Form className={styles.form}>
-        <div className={styles.leftSide}>
-          <InputFile onChange={onChange} previewUrl={previewUrl} fileName={fileName} />
-        </div>
+    <WrapperContext>
+      <section className={styles.form}>
+        <fieldset className={styles.fields}>
+          <div className={styles.leftSide}>
+            <InputFile onChange={onChange} previewUrl={previewUrl} fileName={fileName} />
+          </div>
 
-        <div className={styles.rightSide}>
-          <TextField placeholder={t('packName', {defaultValue: 'Pack name'})} />
-          <TextField placeholder={t('author', {defaultValue: 'Pack author'})} />
-          <DifficultySelect size="l" />
-          <TagsButton />
-        </div>
-      </Form>
-    </section>
+          <div className={styles.rightSide}>
+            <TextField placeholder={t('packName', {defaultValue: 'Pack name'})} />
+            <TextField placeholder={t('author', {defaultValue: 'Pack author'})} />
+            <DifficultySelect size="l" />
+            <TagsButton setTags={setTags} />
+          </div>
+        </fieldset>
+
+        <TagList tags={tags} />
+      </section>
+    </WrapperContext>
   );
 };
 

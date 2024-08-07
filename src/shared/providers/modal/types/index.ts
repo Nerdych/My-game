@@ -1,21 +1,22 @@
 import type {Undefinable} from '@shared/lib/utilityTypes';
 import type {FC, PropsWithChildren} from 'react';
 
+type PropsWithoutClose<T> = Omit<T, 'close'>;
 type Close<Result> = (result?: Result) => void;
 type CloseProp<Result> = {close: Close<Result>};
-type ModalComponent<Result, Props extends CloseProp<Result>> = FC<Props>;
+type ModalComponent<Props, Result> = FC<Props & CloseProp<Result>>;
 
-type ModalItem<Result, Props extends CloseProp<Result>> = {
+type ModalItem<Props, Result> = {
   id: number;
-  content: ModalComponent<Result, Props>;
+  content: ModalComponent<Props, Result>;
   modalProps: Props;
 };
 
 type ModalList = ModalItem<any, any>[];
 
-type OpenModal = <Result, Props extends CloseProp<Result>>(
-  content: ModalComponent<Result, Props>,
-  props?: Omit<Props, 'close'>,
+type OpenModal = <Props, Result>(
+  content: ModalComponent<Props, Result>,
+  props?: PropsWithoutClose<Props>,
 ) => Promise<Undefinable<Result>>;
 
 type ModalContextParams = {
@@ -24,4 +25,14 @@ type ModalContextParams = {
 
 type ModalProviderProps = PropsWithChildren;
 
-export type {CloseProp, ModalComponent, ModalList, ModalContextParams, ModalProviderProps, OpenModal, ModalItem, Close};
+export type {
+  CloseProp,
+  PropsWithoutClose,
+  ModalComponent,
+  ModalList,
+  ModalContextParams,
+  ModalProviderProps,
+  OpenModal,
+  ModalItem,
+  Close,
+};
