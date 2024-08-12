@@ -1,0 +1,3 @@
+const useDependency = () => {};
+
+export {useDependency};

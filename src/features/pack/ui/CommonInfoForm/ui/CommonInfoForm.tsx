@@ -2,9 +2,9 @@ import {Details} from '@shared/ui-kit/Details';
 import {ContextMenu} from '@features/pack/ui/ContextMenu';
 import styles from '../styles/PackCommonInfoForm.module.scss';
 import {Header} from './Header';
-import type {PackCommonInfoProps} from '../types';
+import type {CommonInfoProps} from '../types';
 
-const PackCommonInfoForm = (props: PackCommonInfoProps) => {
+const CommonInfoForm = (props: CommonInfoProps) => {
   const {children} = props;
 
   return (
@@ -17,4 +17,4 @@ const PackCommonInfoForm = (props: PackCommonInfoProps) => {
   );
 };
 
-export {PackCommonInfoForm};
+export {CommonInfoForm};

@@ -1,4 +1,5 @@
-import {Tag, TagCategory} from '../model';
+import {Tag} from '../model/tag';
+import {TagCategory} from '../model/tagCategory';
 
 const defaultTagNames = [
   'Автомобили',
@@ -27,29 +28,14 @@ const cinemaTags = ['Актёры', 'Премии', 'Режиссеры', 'Ки�
 const bookTags = ['Комиксы', 'Книги'];
 const musicTags = ['Джаз', 'Каверы', 'Металл', 'Поп', 'Рок', 'Русская музыка', 'Рэп', 'Электроника', 'Музыка'];
 
-const defaultCategory = new TagCategory(
-  'Основные',
-  defaultTagNames.map((name) => new Tag(name)),
-);
+const defaultCategory = new TagCategory({name: 'Основные', tags: defaultTagNames.map((name) => new Tag({name}))});
 
-const gameCategory = new TagCategory(
-  'Игры',
-  gameTags.map((name) => new Tag(name)),
-);
+const gameCategory = new TagCategory({name: 'Игры', tags: gameTags.map((name) => new Tag({name}))});
 
-const cinemaCategory = new TagCategory(
-  'Кино',
-  cinemaTags.map((name) => new Tag(name)),
-);
+const cinemaCategory = new TagCategory({name: 'Кино', tags: cinemaTags.map((name) => new Tag({name}))});
 
-const bookCategory = new TagCategory(
-  'Книги',
-  bookTags.map((name) => new Tag(name)),
-);
+const bookCategory = new TagCategory({name: 'Книги', tags: bookTags.map((name) => new Tag({name}))});
 
-const musicCategory = new TagCategory(
-  'Музыка',
-  musicTags.map((name) => new Tag(name)),
-);
+const musicCategory = new TagCategory({name: 'Музыка', tags: musicTags.map((name) => new Tag({name}))});
 
 export const defaultCategoriesWithTags = [defaultCategory, gameCategory, cinemaCategory, bookCategory, musicCategory];

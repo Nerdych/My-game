@@ -9,10 +9,10 @@ type DifficultySelectProps = Omit<SelectProps, 'options' | 'placeholder'>;
 
 type HeaderProps = {};
 
-type PackCommonInfoProps = PropsWithChildren;
+type CommonInfoProps = PropsWithChildren;
 
 type TagListProps = {
   tags: Tag[];
 };
 
-export type {DifficultyOptions, DifficultySelectProps, HeaderProps, PackCommonInfoProps, TagListProps};
+export type {DifficultyOptions, DifficultySelectProps, HeaderProps, CommonInfoProps, TagListProps};

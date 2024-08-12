@@ -1,5 +1,5 @@
 import {useEffect, useRef} from 'react';
-import {contextEmitter} from '../ui/WrapperContext';
+import {contextEmitter} from '../ui/ContextTarget';
 import type {UseContextMenu} from '../types';
 
 const useContextMenu: UseContextMenu = () => {

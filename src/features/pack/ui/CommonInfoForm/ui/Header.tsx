@@ -3,7 +3,7 @@ import {TextField} from '@shared/ui-kit/TextField';
 import {useTranslation} from 'react-i18next';
 import {useState} from 'react';
 import {Form} from '@shared/ui-kit/Form';
-import {WrapperContext} from '@features/pack/ui/ContextMenu/ui/WrapperContext';
+import {ContextTarget} from '@features/pack/ui/ContextMenu/ui/ContextTarget';
 import styles from '../styles/Header.module.scss';
 import {DifficultySelect} from './DifficultySelect';
 
@@ -35,7 +35,7 @@ const Header = (props: HeaderProps) => {
   ///
 
   return (
-    <WrapperContext>
+    <ContextTarget>
       <section className={styles.form}>
         <fieldset className={styles.fields}>
           <div className={styles.leftSide}>
@@ -52,7 +52,7 @@ const Header = (props: HeaderProps) => {
 
         <TagList tags={tags} />
       </section>
-    </WrapperContext>
+    </ContextTarget>
   );
 };
 

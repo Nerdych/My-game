@@ -14,7 +14,7 @@ const TagsList: FC<TagsListProps> = (props) => {
   const {value, onChange, resetValue} = useInput();
 
   const handleAddTag = () => {
-    const tag = new Tag(value);
+    const tag = new Tag({name: value});
     onAddTag(tag);
     resetValue();
   };

@@ -33,6 +33,7 @@ module.exports = {
     'no-console': ['error', {allow: ['error']}],
     'no-multiple-empty-lines': ['error', {max: 1}],
     'no-useless-constructor': 'off',
+    "no-use-before-define": "off",
 
     'object-curly-spacing': ['error', 'never'],
     'object-curly-newline': [
@@ -45,6 +46,8 @@ module.exports = {
       },
     ],
 
+    'class-methods-use-this': 'off',
+    'max-classes-per-file': 'off',
     'lines-between-class-members': [
       'error',
       {
@@ -87,6 +90,7 @@ module.exports = {
     '@typescript-eslint/consistent-type-exports': 'error',
     '@typescript-eslint/consistent-type-imports': 'error',
     '@typescript-eslint/no-shadow': 'error',
+    "@typescript-eslint/no-use-before-define": "error",
 
     'i18next/no-literal-string': [
       'error',

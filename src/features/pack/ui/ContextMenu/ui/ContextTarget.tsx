@@ -1,4 +1,4 @@
-import {useRef, useState, type FC} from 'react';
+import {MouseEvent, useRef, useState, type FC} from 'react';
 import {getAbsoluteCoordinates} from '@shared/lib/utils/getAbsoluteCoordinates';
 import cn from 'classnames';
 import styles from '../styles/WrapperContext.module.scss';
@@ -44,15 +44,17 @@ class EventEmitter {
 const contextEmitter = new EventEmitter();
 const padding = 50;
 
-const WrapperContext: FC<WrapperContextProps> = (props) => {
+const ContextTarget: FC<WrapperContextProps> = (props) => {
   const {children} = props;
   const ref = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(false);
 
-  const onClick = () => {
+  const onClick = (event: MouseEvent) => {
     if (!ref.current) {
       return;
     }
+
+    // event.stopPropagation();
 
     const {right, top} = getAbsoluteCoordinates(ref.current);
     setActive(true);
@@ -70,4 +72,4 @@ const WrapperContext: FC<WrapperContextProps> = (props) => {
   );
 };
 
-export {WrapperContext, contextEmitter};
+export {ContextTarget, contextEmitter};

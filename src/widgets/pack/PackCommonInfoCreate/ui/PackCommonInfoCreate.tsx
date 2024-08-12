@@ -1,11 +1,11 @@
-import {PackCommonInfoForm} from '@features/pack/ui/PackCommonInfoForm';
-import {PackRoundsForm} from '@features/pack/ui/PackRoundsForm/ui/PackRoundsForm';
+import {CommonInfoForm} from '@features/pack/ui/CommonInfoForm';
+import {RoundsForm} from '@features/pack/ui/RoundsForm/ui/RoundsForm';
 
 const PackCommonInfoCreate = () => {
   return (
-    <PackCommonInfoForm>
-      <PackRoundsForm />
-    </PackCommonInfoForm>
+    <CommonInfoForm>
+      <RoundsForm />
+    </CommonInfoForm>
   );
 };
 
