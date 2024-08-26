@@ -1,9 +1,13 @@
-import {Round} from '@entities/round';
+import type {IRound} from '@entities/round';
 import type {Option} from '@shared/ui-kit/Select';
 
-type RoundTypeOption = Option<Round['difficulty']>;
+type RoundTypeOption = Option<IRound['type']>;
 type RoundTypeOptions = Array<RoundTypeOption>;
 
-type RoundFormProps = Round;
+type RoundFormProps = IRound;
 
-export type {RoundTypeOptions, RoundFormProps};
+type RoundDetailProps = {
+  roundId: IRound['id'];
+};
+
+export type {RoundTypeOptions, RoundFormProps, RoundDetailProps};

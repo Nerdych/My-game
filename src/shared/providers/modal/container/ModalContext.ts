@@ -1,9 +1,10 @@
 import {createContext} from 'react';
+import {createError} from '@shared/lib/utils/createError';
 import type {ModalContextParams} from '../types';
 
 const defaultValue: ModalContextParams = {
   openModal: (): never => {
-    throw new Error('[ModalContext] Open modal function not implement');
+    return createError('ModalContext', 'open modal function not implement');
   },
 };
 

@@ -3,9 +3,9 @@ import {asserts} from '@shared/lib/asserts';
 import {ModalContext} from '../container/ModalContext';
 
 export const useModal = () => {
-  const modalContextParams = useContext(ModalContext);
+  const modalContext = useContext(ModalContext);
 
-  asserts.defined(modalContextParams);
+  asserts.defined(modalContext);
 
-  return modalContextParams;
+  return modalContext;
 };

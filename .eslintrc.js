@@ -17,6 +17,7 @@ module.exports = {
   globals: {
     React: true,
     __IS_DEV__: true,
+    __API_URL__: true
   },
   parserOptions: {
     ecmaVersion: 'latest',
@@ -34,6 +35,12 @@ module.exports = {
     'no-multiple-empty-lines': ['error', {max: 1}],
     'no-useless-constructor': 'off',
     "no-use-before-define": "off",
+    'no-param-reassign': ['error', {
+      props: true,
+      ignorePropertyModificationsFor: [
+        'state',
+      ]
+    }],
 
     'object-curly-spacing': ['error', 'never'],
     'object-curly-newline': [

@@ -1,8 +1,7 @@
+import {paths} from '@app/routes/paths';
+import {ErrorPage} from '@pages/ErrorPage';
 import {MainPage} from '@pages/MainPage';
 import {PhotoEditorPage} from '@pages/PhotoEditorPage';
-import {RouterProvider, createBrowserRouter} from 'react-router-dom';
-import {ErrorPage} from '@pages/ErrorPage';
-import {paths} from '../paths';
 import type {RouteObject} from 'react-router-dom';
 
 const routerConfig: Array<RouteObject> = [
@@ -10,8 +9,4 @@ const routerConfig: Array<RouteObject> = [
   {path: paths.photoEditor, element: <PhotoEditorPage />},
 ];
 
-const router = createBrowserRouter(routerConfig);
-
-export function Router() {
-  return <RouterProvider router={router} />;
-}
+export {routerConfig};

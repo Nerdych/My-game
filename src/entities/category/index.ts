@@ -1,1 +1,1 @@
-export {Category} from './model/category';
+export type {ICategory} from './model/category';

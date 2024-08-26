@@ -1,1 +1,0 @@
-export {clientDependenciesConfig} from './clientConfig';

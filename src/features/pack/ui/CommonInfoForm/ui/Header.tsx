@@ -2,7 +2,6 @@ import {InputFile} from '@shared/ui-kit/InputFile';
 import {TextField} from '@shared/ui-kit/TextField';
 import {useTranslation} from 'react-i18next';
 import {useState} from 'react';
-import {Form} from '@shared/ui-kit/Form';
 import {ContextTarget} from '@features/pack/ui/ContextMenu/ui/ContextTarget';
 import styles from '../styles/Header.module.scss';
 import {DifficultySelect} from './DifficultySelect';
@@ -10,10 +9,8 @@ import {DifficultySelect} from './DifficultySelect';
 import {TagsButton} from './TagsButton';
 import {TagList} from './TagList';
 import type {ChangeEvent} from 'react';
-import type {HeaderProps} from '../types';
 
-const Header = (props: HeaderProps) => {
-  const {} = props;
+const Header = () => {
   const {t} = useTranslation('features/pack/index');
 
   ///

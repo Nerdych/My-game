@@ -1,19 +1,7 @@
 interface ICategory {
+  id: number;
   name: string;
+  questionIds: number[];
 }
 
-type ConstructorParams = {
-  name: string;
-};
-
-class Category implements ICategory {
-  name: string;
-
-  constructor(params: ConstructorParams) {
-    const {name} = params;
-
-    this.name = name;
-  }
-}
-
-export {Category};
+export type {ICategory};

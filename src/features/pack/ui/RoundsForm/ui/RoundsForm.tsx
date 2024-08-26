@@ -1,19 +1,9 @@
-import {Details} from '@shared/ui-kit/Details';
-import {RoundForm} from './RoundForm';
-import {rounds} from '../mocks/rounds';
-import {CategoriesForm} from '@features/pack/ui/CategoriesForm';
+import {useStore} from '@app/store';
+import {RoundDetail} from './RoundDetail';
 
 const RoundsForm = () => {
-  ///
-
-  const roundsJSX = rounds.map((round) => (
-    <Details open header={<RoundForm {...round} />}>
-      {round.categories.length ? <CategoriesForm categories={round.categories} /> : null}
-    </Details>
-  ));
-
-  ///
-  return roundsJSX;
+  const roundIds = useStore((store) => store.packReducer.roundIds);
+  return roundIds.map((roundId) => <RoundDetail key={roundId} roundId={roundId} />);
 };
 
 export {RoundsForm};

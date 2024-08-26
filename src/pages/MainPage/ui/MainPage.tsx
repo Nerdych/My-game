@@ -1,3 +1,4 @@
+import {ContextMenu} from '@features/pack/ui/ContextMenu';
 import {Heading} from '@shared/ui-kit/Heading';
 import {PackCommonInfoCreate} from '@widgets/pack/PackCommonInfoCreate';
 import {useTranslation} from 'react-i18next';
@@ -12,6 +13,7 @@ const MainPage = () => {
       </Heading>
 
       <PackCommonInfoCreate />
+      <ContextMenu />
     </main>
   );
 };

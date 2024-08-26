@@ -2,6 +2,7 @@ type HttpMethod = 'POST' | 'GET' | 'PUT' | 'DELETE' | 'PATCH';
 
 type HttpRequestParams = {
   method: HttpMethod;
+  body?: Record<string, unknown>;
 };
 
 type HttpService = {

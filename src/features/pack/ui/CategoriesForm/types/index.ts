@@ -1,11 +1,9 @@
-import {Category} from '@entities/category';
+import type {ICategory} from '@entities/category';
 
 type CategoriesFormProps = {
-  categories: Category[];
+  categoryIds: number[];
 };
 
-type CustomProps = {className?: string};
+type CategoryFormProps = ICategory & {className?: string};
 
-type CategoryFormProps = Category & CustomProps;
-
-export {CategoriesFormProps, CategoryFormProps};
+export type {CategoriesFormProps, CategoryFormProps};

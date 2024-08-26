@@ -1,4 +1,4 @@
-import {MouseEvent, useRef, useState, type FC} from 'react';
+import {useRef, useState, type FC} from 'react';
 import {getAbsoluteCoordinates} from '@shared/lib/utils/getAbsoluteCoordinates';
 import cn from 'classnames';
 import styles from '../styles/WrapperContext.module.scss';
@@ -49,12 +49,10 @@ const ContextTarget: FC<WrapperContextProps> = (props) => {
   const ref = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(false);
 
-  const onClick = (event: MouseEvent) => {
+  const onClick = () => {
     if (!ref.current) {
       return;
     }
-
-    // event.stopPropagation();
 
     const {right, top} = getAbsoluteCoordinates(ref.current);
     setActive(true);

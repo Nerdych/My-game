@@ -28,7 +28,7 @@ class FetchApiService extends HttpService {
   }
 
   private async request<Result>(params: HttpRequestParams) {
-    const result = await fetch('https://jsonplaceholder.typicode.com/todos/1', params);
+    const result = await fetch(__API_URL__, params);
     return result.json() as Result;
   }
 }
