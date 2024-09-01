@@ -17,7 +17,7 @@ module.exports = {
   globals: {
     React: true,
     __IS_DEV__: true,
-    __API_URL__: true
+    __API_URL__: true,
   },
   parserOptions: {
     ecmaVersion: 'latest',
@@ -31,16 +31,18 @@ module.exports = {
 
     'no-shadow': 'off',
     'no-underscore-dangle': 'off',
+    'no-plusplus': 'off',
     'no-console': ['error', {allow: ['error']}],
     'no-multiple-empty-lines': ['error', {max: 1}],
     'no-useless-constructor': 'off',
-    "no-use-before-define": "off",
-    'no-param-reassign': ['error', {
-      props: true,
-      ignorePropertyModificationsFor: [
-        'state',
-      ]
-    }],
+    'no-use-before-define': 'off',
+    'no-param-reassign': [
+      'error',
+      {
+        props: true,
+        ignorePropertyModificationsFor: ['state'],
+      },
+    ],
 
     'object-curly-spacing': ['error', 'never'],
     'object-curly-newline': [
@@ -97,7 +99,7 @@ module.exports = {
     '@typescript-eslint/consistent-type-exports': 'error',
     '@typescript-eslint/consistent-type-imports': 'error',
     '@typescript-eslint/no-shadow': 'error',
-    "@typescript-eslint/no-use-before-define": "error",
+    '@typescript-eslint/no-use-before-define': 'error',
 
     'i18next/no-literal-string': [
       'error',

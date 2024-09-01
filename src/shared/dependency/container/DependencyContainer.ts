@@ -20,14 +20,14 @@ type DependencyMapElement<Args = unknown, Result = unknown> = {
   instance: InstanceType<Constructor<Args, Result>> | null;
 };
 
-const isDependencyExist = <Args, Result>(
-  dependencyConfig?: DependencyMapElement,
-): dependencyConfig is DependencyMapElement<Args, Result> => {
-  return Boolean(dependencyConfig);
-};
-
 class DependencyContainer {
   private dependencyMap: Map<Constructor, DependencyMapElement> = new Map();
+
+  private isDependencyExist<Args, Result>(
+    dependencyConfig?: DependencyMapElement,
+  ): dependencyConfig is DependencyMapElement<Args, Result> {
+    return Boolean(dependencyConfig);
+  }
 
   constructor(dependenciesConfig: DependenciesConfig) {
     const prepareConfigForMap: Array<[Constructor, DependencyMapElement]> = dependenciesConfig.map(
@@ -41,7 +41,7 @@ class DependencyContainer {
   public get<Args, Result>(constructor: Constructor<Args, Result>): InstanceType<Constructor<Args, Result>> {
     const dependencyConfig = this.dependencyMap.get(constructor);
 
-    if (!isDependencyExist<Args, Result>(dependencyConfig)) {
+    if (!this.isDependencyExist<Args, Result>(dependencyConfig)) {
       return createError('DependencyContainer', 'dependency is not include in config');
     }
 
