@@ -1,15 +1,14 @@
-import {useContext, useMemo} from 'react';
-import {DependencyConfigContext} from '../dependencyConfigContext/context';
-import {DependencyContainer} from '../container/DependencyContainer';
+import {useContext} from 'react';
+import {DependencyContext} from '../dependencyContext/context';
+import type {Constructor} from '../container/DependencyContainer';
 
-type UseDependencyParams = [];
+type InstanceTurple<Dependencies extends Constructor[]> = {
+  [ClassConstructor in keyof Dependencies]: InstanceType<Dependencies[ClassConstructor]>;
+};
 
-const useDependency = (params: UseDependencyParams) => {
-  const dependenciesConfig = useContext(DependencyConfigContext);
-
-  const {get} = useMemo(() => new DependencyContainer(dependenciesConfig), [dependenciesConfig]);
-
-  return params.map((dependency) => get(dependency));
+const useDependency = <Dependencies extends Constructor[]>(params: Dependencies): InstanceTurple<Dependencies> => {
+  const {get} = useContext(DependencyContext);
+  return params.map(get) as InstanceTurple<Dependencies>;
 };
 
 export {useDependency};

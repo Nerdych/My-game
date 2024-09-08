@@ -55,5 +55,5 @@ class DependencyContainer {
   }
 }
 
-export type {DependenciesConfig};
+export type {DependenciesConfig, Constructor};
 export {DependencyContainer};

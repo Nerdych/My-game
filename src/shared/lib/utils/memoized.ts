@@ -24,7 +24,7 @@ const isArgsEqual = <PrevArgs extends Array<unknown>, CurrentArgs extends Array<
       return false;
     }
 
-    if (Array.isArray(iterationPrevArg) && Array.isArray(iterationCurrentArg)) {
+    if (guards.array(iterationPrevArg) && guards.array(iterationCurrentArg)) {
       if (isArgsEqual(iterationPrevArg, iterationCurrentArg)) {
         continue;
       }
@@ -64,7 +64,7 @@ const memoized = <Args, Result>(callback: (...args: Args[]) => Result) => {
 
       alreadyCall = true;
       prevValue = newValue;
-      prevArgs = [...args];
+      prevArgs = JSON.parse(JSON.stringify([...args]));
       return newValue;
     }
 
@@ -75,7 +75,7 @@ const memoized = <Args, Result>(callback: (...args: Args[]) => Result) => {
     const newValue = callback(...args);
 
     prevValue = newValue;
-    prevArgs = [...args];
+    prevArgs = JSON.parse(JSON.stringify([...args]));
     return newValue;
   };
 };

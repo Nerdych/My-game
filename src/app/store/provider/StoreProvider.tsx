@@ -1,20 +1,30 @@
-import {createContext, useMemo} from 'react';
-import {useTypedSelector} from '@app/store';
-import type {StoreContextValue} from '../types';
-import type {FC, ReactNode} from 'react';
+import {useLocalStorage} from '@shared/lib/hooks/useLocalStorage';
+import {lazy, Suspense, type FC, type PropsWithChildren} from 'react';
 
-const StoreContext = createContext<StoreContextValue | null>(null);
+type StoreProviderProps = PropsWithChildren;
 
-type Props = {
-  children: ReactNode;
-};
+const MobXStoreProvider = lazy(() => import('./MobXStoreProvider'));
+const ReduxStoreProvider = lazy(() => import('./ReduxStoreProvider'));
 
-const StoreProvider: FC<Props> = (props) => {
+const StoreProvider: FC<StoreProviderProps> = (props) => {
   const {children} = props;
 
-  const contextValue: StoreContextValue = useMemo(() => ({useStore: useTypedSelector}), []);
+  const {getValue} = useLocalStorage();
+  const store = getValue('store');
 
-  return <StoreContext.Provider value={contextValue}>{children}</StoreContext.Provider>;
+  if (store === 'mobx') {
+    return (
+      <Suspense fallback={<>loading...</>}>
+        <MobXStoreProvider>{children}</MobXStoreProvider>
+      </Suspense>
+    );
+  }
+
+  return (
+    <Suspense fallback={<>loading...</>}>
+      <ReduxStoreProvider>{children}</ReduxStoreProvider>
+    </Suspense>
+  );
 };
 
-export {StoreProvider, StoreContext};
+export {StoreProvider};

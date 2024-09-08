@@ -15,7 +15,7 @@ export const roundSlice = createSlice({
   initialState,
   reducers: {
     addRound: (state) => {
-      state.map[length] = {id: length, name: `Round ${length}`, type: 'default', categoryIds: []};
+      state.map[0] = {id: 0, name: `Round ${0}`, type: 'default', categoryIds: []};
     },
 
     editRound: (state, action: Actions['editRound']) => {

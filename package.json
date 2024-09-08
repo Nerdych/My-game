@@ -16,7 +16,7 @@
   "homepage": "https://github.com/Nerdych/My-game#readme",
   "bugs": "https://github.com/Nerdych/My-game/issues",
   "scripts": {
-    "start": "webpack serve --env port=3000 bundleAnalyzerPort=4000",
+    "start": "webpack serve --env port=3000 bundleAnalyzerPort=4000 mode=production",
     "build:dev": "webpack --config webpack.config.ts --env mode=development",
     "build:prod": "webpack --config webpack.config.ts --env mode=production",
     "test:unit": "jest --config config/jest/jest.config.ts",

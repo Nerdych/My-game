@@ -1,17 +1,8 @@
-function PhotoEditorPage() {
-  return (
-    <>
-      PhotoEditorPage
-      <button
-        onClick={() => {
-          throw new Error('whaaat');
-        }}
-        type="button"
-      >
-        Throw Error
-      </button>
-    </>
-  );
-}
+import {bar} from '@app/store';
+
+const PhotoEditorPage = () => {
+  bar();
+  return <>PhotoEditorPage</>;
+};
 
 export default PhotoEditorPage;

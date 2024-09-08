@@ -57,6 +57,7 @@ module.exports = {
 
     'class-methods-use-this': 'off',
     'max-classes-per-file': 'off',
+    'consistent-return': 'off',
     'lines-between-class-members': [
       'error',
       {

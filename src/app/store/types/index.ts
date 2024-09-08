@@ -1,4 +1,3 @@
-import type {TypedUseSelectorHook} from 'react-redux';
 import type {PropsWithChildren} from 'react';
 import type {store} from '../config';
 
