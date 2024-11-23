@@ -55,7 +55,7 @@ $font-size: 1.6rem;
     border: 0.1rem transparent solid;
 
     &:not(:focus-visible):hover {
-      background-color: var(--hover-ghost-blue);
+      background-color: var(--hover-light-blue);
       transition: background-color 0.2s;
     }
   }

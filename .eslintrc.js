@@ -117,12 +117,7 @@ module.exports = {
       },
     ],
 
-    'prettier/prettier': [
-      'error',
-      {
-        endOfLine: 'auto',
-      },
-    ],
+    'prettier/prettier': ['warn', {}, {usePrettierrc: true}],
   },
 
   overrides: [

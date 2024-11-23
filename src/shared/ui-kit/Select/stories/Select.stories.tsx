@@ -35,7 +35,7 @@ const SelectCommon: Story = {
   render: (props) => (
     <>
       {allSizes.map((size) =>
-        allVariants.map((variant) => <Select {...props} size={size} key={variant} variant={variant} />)
+        allVariants.map((variant) => <Select {...props} size={size} key={variant} variant={variant} />),
       )}
     </>
   ),

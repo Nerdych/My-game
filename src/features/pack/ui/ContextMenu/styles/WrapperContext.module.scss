@@ -4,11 +4,11 @@
   border-radius: 1rem;
 
   &:hover {
-    background-color: var(--ghost-blue);
+    background-color: var(--ultra-light-blue);
     transition: background-color 0.2s;
   }
 }
 
 .active {
-  background-color: var(--ghost-blue);
+  background-color: var(--ultra-light-blue);
 }

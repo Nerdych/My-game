@@ -25,7 +25,6 @@
 
   @each $ext in $exts {
     $src: append($src, getSrcWithFormat($fullpath, getExtension($ext, $filename), getFormat($ext)), comma);
-
   }
 
   @font-face {

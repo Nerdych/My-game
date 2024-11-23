@@ -11,7 +11,7 @@
   background-color: var(--white);
   border: 0.1rem solid var(--black);
   border-radius: 1rem;
-  box-shadow: 0 0.4rem 1rem var(--ghost-gray);
+  box-shadow: 0 0.4rem 1rem var(--ultra-light-gray);
   transition:
     transform 0.4s,
     opacity 0.2s;
@@ -25,7 +25,7 @@
   padding: 1rem;
 
   &:hover {
-    background-color: var(--ghost-gray);
+    background-color: var(--ultra-light-gray);
     transition:
       color 0.2s,
       background-color 0.2s;

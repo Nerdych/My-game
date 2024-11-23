@@ -1,12 +1,12 @@
+import {LocalStorage} from '../abstractLocalStorage';
 import type {StringKeys} from '@shared/lib/utilityTypes';
-import type {LocalStorage} from '../abstractLocalStorage';
 
-class PropertyLocalStorage<State extends Record<string, string>> implements LocalStorage<State> {
+class PropertyLocalStorage<State extends Record<string, string>> extends LocalStorage<State> {
   private readonly DEFAULT_VALUE = {};
   private readonly PROPERTY_ENDPOINT = 'state';
-  private readonly CHANGE_STORAGE_EVENT = 'change-storage-event';
 
   constructor() {
+    super();
     this.dispatchCustomEvent = this.dispatchCustomEvent.bind(this);
     this.setValue = this.setValue.bind(this);
     this.deleteValue = this.deleteValue.bind(this);
@@ -16,10 +16,6 @@ class PropertyLocalStorage<State extends Record<string, string>> implements Loca
     this.getState = this.getState.bind(this);
     this.updateState = this.updateState.bind(this);
     this.getValue = this.getValue.bind(this);
-  }
-
-  private dispatchCustomEvent() {
-    window.dispatchEvent(new StorageEvent(this.CHANGE_STORAGE_EVENT));
   }
 
   private getState(): Partial<State> {
@@ -60,11 +56,6 @@ class PropertyLocalStorage<State extends Record<string, string>> implements Loca
 
   public getSnapshot(): string {
     return localStorage.getItem(this.PROPERTY_ENDPOINT) ?? '';
-  }
-
-  public subscribe(callback: () => void): () => void {
-    window.addEventListener(this.CHANGE_STORAGE_EVENT, callback);
-    return () => window.removeEventListener(this.CHANGE_STORAGE_EVENT, callback);
   }
 
   public clear(): void {

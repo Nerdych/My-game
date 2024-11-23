@@ -65,11 +65,11 @@
 .regular {
   color: var(--blue);
 
-  background-color: var(--ghost-blue);
+  background-color: var(--ultra-light-blue);
 
   &:hover,
   &:focus-visible {
-    background-color: var(--hover-ghost-blue);
+    background-color: var(--hover-light-blue);
     transition: background-color 0.2s;
   }
 }

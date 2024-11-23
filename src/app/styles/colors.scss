@@ -1,13 +1,15 @@
 :root {
   --white: #ffffff;
   --black: #1d1d1f;
+  --red: #e30000;
+
   --gray: #86868b;
   --light-gray: #d6d6d6;
-  --ghost-gray: #e9e8e8;
+  --ultra-light-gray: #e9e8e8;
+
   --blue: #007aff;
-  --hover-blue: #0077ed;
-  --ghost-blue: rgb(0 122 255 / 15%);
-  --hover-ghost-blue: rgb(0 122 255 / 20%);
   --light-blue: rgb(0 125 250 / 60%);
-  --red: #e30000;
+  --ultra-light-blue: rgb(0 122 255 / 15%);
+  --hover-blue: #0077ed;
+  --hover-light-blue: rgb(0 122 255 / 20%);
 }

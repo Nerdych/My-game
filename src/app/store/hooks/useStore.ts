@@ -8,5 +8,5 @@ export const useStore: StoreContextValue['useStore'] = (params) => {
 
   asserts.defined(useStoreContext);
 
-  return useStoreContext.useStore(params);
+  return useStoreContext?.useStore(params);
 };
