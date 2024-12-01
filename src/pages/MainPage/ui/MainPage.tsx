@@ -1,6 +1,6 @@
 import {ContextMenu} from '@features/pack/ui/ContextMenu';
 import {Heading} from '@shared/ui-kit/Heading';
-import {PackCommonInfoCreate} from '@widgets/pack/PackCommonInfoCreate';
+import {PackForm} from '@widgets/pack/PackForm';
 import {useTranslation} from 'react-i18next';
 
 const MainPage = () => {
@@ -12,7 +12,7 @@ const MainPage = () => {
         {t('createPackTitle', {defaultValue: 'Create pack'})}
       </Heading>
 
-      <PackCommonInfoCreate />
+      <PackForm />
       <ContextMenu />
     </main>
   );

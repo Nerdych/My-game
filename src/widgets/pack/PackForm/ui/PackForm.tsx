@@ -1,7 +1,7 @@
 import {CommonInfoForm} from '@features/pack/ui/CommonInfoForm';
 import {RoundsForm} from '@features/pack/ui/RoundsForm/ui/RoundsForm';
 
-const PackCommonInfoCreate = () => {
+const PackForm = () => {
   return (
     <CommonInfoForm>
       <RoundsForm />
@@ -9,4 +9,4 @@ const PackCommonInfoCreate = () => {
   );
 };
 
-export {PackCommonInfoCreate};
+export {PackForm};

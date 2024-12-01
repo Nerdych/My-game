@@ -1,12 +1,16 @@
-import type {PayloadAction} from '@reduxjs/toolkit';
+import type {FirstParametersFunctions} from '@shared/lib/utilityTypes';
 import type {IPack} from '../model/pack';
 
 type PackDifficulty = 'hard' | 'medium' | 'easy';
 
-type Actions = {
-  editInfo: PayloadAction<Omit<IPack, 'roundIds'>>;
-  addRound: PayloadAction<number>;
-  deleteRound: PayloadAction<number>;
+type PackActions = {
+  editInfo: (info: Omit<IPack, 'roundIds'>) => void;
+  addRound: (roundId: number) => void;
+  deleteRound: (roundId: number) => void;
 };
 
-export type {PackDifficulty, Actions};
+type PackActionsParams = FirstParametersFunctions<PackActions>;
+
+type PackState = IPack;
+
+export type {PackDifficulty, PackActionsParams, PackActions, PackState};

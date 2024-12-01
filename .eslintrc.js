@@ -24,10 +24,8 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    indent: ['warn', 2],
-    quotes: ['warn', 'single'],
-    semi: ['error', 'always'],
     curly: ['error', 'all'],
+    'linebreak-style': ['error', 'unix'],
 
     'no-shadow': 'off',
     'no-underscore-dangle': 'off',
@@ -36,6 +34,7 @@ module.exports = {
     'no-multiple-empty-lines': ['error', {max: 1}],
     'no-useless-constructor': 'off',
     'no-use-before-define': 'off',
+    'no-restricted-exports': 'off',
     'no-param-reassign': [
       'error',
       {
@@ -101,6 +100,7 @@ module.exports = {
     '@typescript-eslint/consistent-type-imports': 'error',
     '@typescript-eslint/no-shadow': 'error',
     '@typescript-eslint/no-use-before-define': 'error',
+    '@typescript-eslint/no-explicit-any': ['error', {ignoreRestArgs: true}],
 
     'i18next/no-literal-string': [
       'error',

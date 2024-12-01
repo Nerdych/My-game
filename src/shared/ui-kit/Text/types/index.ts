@@ -8,6 +8,6 @@ type CustomProps = {
 
 type HTMLNativeProps = HTMLProps<HTMLParagraphElement>;
 
-type TextProps = PropsWithChildren & HTMLNativeProps & CustomProps;
+type TextProps = PropsWithChildren & Omit<HTMLNativeProps, 'size'> & CustomProps;
 
 export type {TextProps};

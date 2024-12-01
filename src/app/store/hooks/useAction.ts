@@ -1,12 +1,12 @@
 import {useContext} from 'react';
 import {asserts} from '@shared/lib/asserts';
 import {StoreContext} from '../provider/UseStoreProvider';
-import type {StoreContextValue} from '../types';
+import type {UseAction} from '../types';
 
-export const useStore: StoreContextValue['useStore'] = (params) => {
+export const useAction = (): ReturnType<UseAction> => {
   const useStoreContext = useContext(StoreContext);
 
   asserts.defined(useStoreContext);
 
-  return useStoreContext!.useStore(params);
+  return useStoreContext!.useAction();
 };

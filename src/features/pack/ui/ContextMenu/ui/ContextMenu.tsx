@@ -34,14 +34,7 @@ const ContextMenu = () => {
       <ul className={styles.list}>
         {specificButtons.map((button) => (
           <li key={button.name}>
-            <Button
-              className={cn(
-                styles.button,
-                button.variant === 'positive' ? styles.positiveButton : styles.negativeButton,
-              )}
-              variant="clear"
-              onClick={button.onClick}
-            >
+            <Button className={cn(styles.button, button.variant === 'positive' ? styles.positiveButton : styles.negativeButton)} variant="clear" onClick={button.onClick}>
               {button.icon}
             </Button>
           </li>
@@ -51,13 +44,7 @@ const ContextMenu = () => {
       <ul className={styles.list}>
         {specificButtons.map((button) => (
           <li key={button.name}>
-            <Button
-              className={cn(
-                styles.button,
-                button.variant === 'positive' ? styles.positiveButton : styles.negativeButton,
-              )}
-              variant="clear"
-            >
+            <Button className={cn(styles.button, button.variant === 'positive' ? styles.positiveButton : styles.negativeButton)} variant="clear">
               {button.icon}
             </Button>
           </li>

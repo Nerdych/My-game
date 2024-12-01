@@ -1,6 +1,7 @@
 import {Provider} from 'react-redux';
-import {store} from '../config';
-import {useTypedSelector} from '../hooks/useTypedSelector';
+import {reduxStore} from '../stores/redux';
+import {useReduxStore} from '../hooks/useReduxStore';
+import {useReduxAction} from '../hooks/useReduxAction';
 import {UseStoreProvider} from './UseStoreProvider';
 import type {FC} from 'react';
 import type {ReduxStoreProviderProps} from '../types';
@@ -9,8 +10,10 @@ const ReduxStoreProvider: FC<ReduxStoreProviderProps> = (props) => {
   const {children} = props;
 
   return (
-    <Provider store={store}>
-      <UseStoreProvider useStore={useTypedSelector}>{children}</UseStoreProvider>
+    <Provider store={reduxStore}>
+      <UseStoreProvider useAction={useReduxAction} useStore={useReduxStore}>
+        {children}
+      </UseStoreProvider>
     </Provider>
   );
 };

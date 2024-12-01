@@ -1,11 +1,9 @@
 import {createSlice} from '@reduxjs/toolkit';
-import type {IPack} from '../model/pack';
-import type {Actions} from '../types';
-
-type PackState = IPack;
+import type {PackActionsParams, PackState} from '../types';
+import type {PayloadAction} from '@reduxjs/toolkit';
 
 const initialState: PackState = {
-  name: '',
+  name: 'REDUX',
   author: '',
   difficulty: 'easy',
   roundIds: [],
@@ -15,23 +13,24 @@ const packSlice = createSlice({
   name: 'pack',
   initialState,
   reducers: {
-    editInfo: (state, action: Actions['editInfo']) => {
-      const {name, difficulty, author} = action.payload;
+    editInfo: (state, action: PayloadAction<PackActionsParams['editInfo']>) => {
+      const {name, difficulty, author, file} = action.payload;
 
       state.name = name;
       state.author = author;
       state.difficulty = difficulty;
+      state.file = file;
     },
 
-    addRoundId: (state, action: Actions['addRound']) => {
+    addRound: (state, action: PayloadAction<PackActionsParams['addRound']>) => {
       state.roundIds.push(action.payload);
     },
 
-    deleteRoundId: (state, action: Actions['deleteRound']) => {
+    deleteRound: (state, action: PayloadAction<PackActionsParams['deleteRound']>) => {
       state.roundIds.filter((roundId) => roundId !== action.payload);
     },
   },
 });
 
-export const {editInfo, addRoundId, deleteRoundId} = packSlice.actions;
-export default packSlice.reducer;
+export default packSlice;
+export type {PackState};

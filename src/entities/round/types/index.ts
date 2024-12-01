@@ -1,10 +1,16 @@
-import type {PayloadAction} from '@reduxjs/toolkit';
+import type {FirstParametersFunctions} from '@shared/lib/utilityTypes';
 import type {IRound} from '../model/round';
 
 type RoundType = 'default' | 'final';
 
-type Actions = {
-  editRound: PayloadAction<IRound>;
+type RoundActions = {
+  editRound: (info: IRound) => void;
 };
 
-export type {Actions, RoundType};
+type RoundActionsParams = FirstParametersFunctions<RoundActions>;
+
+type RoundState = {
+  map: Record<IRound['id'], IRound>;
+};
+
+export type {RoundActions, RoundType, RoundState, RoundActionsParams};

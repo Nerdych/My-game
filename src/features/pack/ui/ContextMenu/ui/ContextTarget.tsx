@@ -1,7 +1,7 @@
 import {useRef, useState, type FC} from 'react';
 import {getAbsoluteCoordinates} from '@shared/lib/utils/getAbsoluteCoordinates';
 import cn from 'classnames';
-import styles from '../styles/WrapperContext.module.scss';
+import styles from '../styles/ContextTarget.module.scss';
 import type {WrapperContextProps} from '../types';
 
 type EventHandler = (...args: any[]) => void;
@@ -57,6 +57,7 @@ const ContextTarget: FC<WrapperContextProps> = (props) => {
     const {right, top} = getAbsoluteCoordinates(ref.current);
     setActive(true);
 
+    // TODO: Подумать, нужен ли тут эмиттер
     contextEmitter.emit('setContext', {
       top: Math.max(0, top - padding),
       right,

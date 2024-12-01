@@ -14,9 +14,7 @@ class BaseLocalStorage<State extends Record<string, string>> extends LocalStorag
 
   private getState = (localStorage: Storage) => {
     try {
-      return JSON.stringify(
-        Object.keys(localStorage).reduce((acc, key) => ({...acc, [key]: localStorage.getItem(key)}), {}),
-      );
+      return JSON.stringify(Object.keys(localStorage).reduce((acc, key) => ({...acc, [key]: localStorage.getItem(key)}), {}));
     } catch (e) {
       console.error('Local storage encode failed', e);
       return this.DEFAULT_VALUE;

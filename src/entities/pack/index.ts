@@ -1,2 +1,4 @@
 export type {IPack} from './model/pack';
-export {default as packReducer} from './store/slice';
+export type {PackState} from './store/slice';
+export {packStore} from './store/class';
+export {default} from './store/slice';

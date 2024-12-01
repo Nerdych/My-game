@@ -1,2 +1,4 @@
 export type {IRound} from './model/round';
-export {default as roundReducer} from './slice/roundSlice';
+export type {RoundState} from './store/slice';
+export {roundStore} from './store/class';
+export {default} from './store/slice';
