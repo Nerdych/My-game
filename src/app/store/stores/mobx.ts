@@ -1,5 +1,5 @@
-import {packStore} from '@entities/pack';
-import {roundStore} from '@entities/round';
+import {packStore} from '@entities/pack/store/class';
+import {roundStore} from '@entities/round/store/class';
 import {deleteSubstrFromProperties} from '@shared/lib/utils/deleteSubstrFromProperties';
 import type {StoreActions} from '../types';
 

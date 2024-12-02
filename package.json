@@ -8,6 +8,10 @@
     "game",
     "questions"
   ],
+  "sideEffects": [
+    "*.scss",
+    "./src/app/configs/i18n/config.ts"
+  ],
   "main": "./src/index.ts",
   "repository": {
     "type": "git",

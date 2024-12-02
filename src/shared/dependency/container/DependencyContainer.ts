@@ -4,9 +4,7 @@ type Strategy = 'singleton' | 'everyNew';
 type AbstractConstuctor<Args = any, Result = unknown> = abstract new (args: Args) => Result;
 type DefaultConstructor<Args = any, Result = unknown> = new (args: Args) => Result;
 type Constructor<Args = any, Result = unknown> = DefaultConstructor<Args, Result> | AbstractConstuctor<Args, Result>;
-type Factory<Args = unknown, Result = unknown> = (
-  get: DependencyContainer['get'],
-) => InstanceType<Constructor<Args, Result>>;
+type Factory<Args = unknown, Result = unknown> = (get: DependencyContainer['get']) => InstanceType<Constructor<Args, Result>>;
 
 type DependenciesConfig = Array<{
   constructor: Constructor;
@@ -23,16 +21,15 @@ type DependencyMapElement<Args = unknown, Result = unknown> = {
 class DependencyContainer {
   private dependencyMap: Map<Constructor, DependencyMapElement> = new Map();
 
-  private isDependencyExist<Args, Result>(
-    dependencyConfig?: DependencyMapElement,
-  ): dependencyConfig is DependencyMapElement<Args, Result> {
+  private isDependencyExist<Args, Result>(dependencyConfig?: DependencyMapElement): dependencyConfig is DependencyMapElement<Args, Result> {
     return Boolean(dependencyConfig);
   }
 
   constructor(dependenciesConfig: DependenciesConfig) {
-    const prepareConfigForMap: Array<[Constructor, DependencyMapElement]> = dependenciesConfig.map(
-      ({constructor, factory, strategy}) => [constructor, {factory, strategy, instance: null}],
-    );
+    const prepareConfigForMap: Array<[Constructor, DependencyMapElement]> = dependenciesConfig.map(({constructor, factory, strategy}) => [
+      constructor,
+      {factory, strategy, instance: null},
+    ]);
 
     this.dependencyMap = new Map(prepareConfigForMap);
     this.get = this.get.bind(this);

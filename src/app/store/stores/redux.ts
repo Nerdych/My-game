@@ -1,6 +1,6 @@
 import {configureStore} from '@reduxjs/toolkit';
-import roundSlice from '@entities/round';
-import packSlice from '@entities/pack';
+import roundSlice from '@entities/round/store/slice';
+import packSlice from '@entities/pack/store/slice';
 import type {ReducersMapObject} from '@reduxjs/toolkit';
 import type {StoreActions} from '../types';
 

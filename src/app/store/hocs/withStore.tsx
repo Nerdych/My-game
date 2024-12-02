@@ -1,6 +1,6 @@
 import {getDisplayName} from '@shared/lib/hocs/getDisplayName';
 import {useLocalStorage} from '@shared/lib/hooks/useLocalStorage';
-import {observer} from 'mobx-react';
+
 import type {ComponentType, FC} from 'react';
 
 const withStore = <Props extends {}>(Element: ComponentType<Props>) => {
@@ -8,7 +8,7 @@ const withStore = <Props extends {}>(Element: ComponentType<Props>) => {
     const {getValue} = useLocalStorage();
     const store = getValue('store');
 
-    const ObservedElement = store === 'mobx' ? observer(Element) : Element;
+    const ObservedElement = store === 'mobx' ? Element : Element;
 
     return <ObservedElement {...props} />;
   };

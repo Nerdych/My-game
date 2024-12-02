@@ -13,8 +13,6 @@ const RoundDetailComponent: FC<RoundDetailProps> = (props) => {
     return null;
   }
 
-  console.log('test - // render', roundId);
-
   return (
     <Details key={roundId} open header={<RoundForm {...round} />}>
       {round.categoryIds.length ? <CategoriesForm categoryIds={round.categoryIds} /> : null}
